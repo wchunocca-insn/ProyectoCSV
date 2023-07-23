@@ -26,9 +26,9 @@
       <Column Name="PROGRAMA_PPTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="ACTIVIDAD_ACCION_OBRA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="FUNCION" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="FUNCION_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -99,9 +99,9 @@
       <Column Name="PROGRAMA_PPTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="ACTIVIDAD_ACCION_OBRA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="FUNCION" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="FUNCION_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -172,9 +172,9 @@
       <Column Name="PROGRAMA_PPTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="ACTIVIDAD_ACCION_OBRA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="FUNCION" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="FUNCION_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -245,9 +245,9 @@
       <Column Name="PROGRAMA_PPTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="ACTIVIDAD_ACCION_OBRA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="FUNCION" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="FUNCION_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -318,9 +318,9 @@
       <Column Name="PROGRAMA_PPTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="ACTIVIDAD_ACCION_OBRA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="FUNCION" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="FUNCION_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -365,4 +365,12 @@
       <Column Name="imp_fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Function Name="dbo.pms_ecomin_mtTareaCVS" Method="pms_ecomin_mtTareaCVS">
+    <Parameter Name="s_key" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="s_parm1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="s_parm2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="s_parm3" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="s_msgError" Type="System.String" DbType="VarChar(250)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

@@ -89,8 +89,8 @@ Partial Class frmTareaEco
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.pgbar_avance = New System.Windows.Forms.ProgressBar()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.lbl_error_msg = New System.Windows.Forms.Label()
         Me.lbl_cant = New System.Windows.Forms.Label()
+        Me.lbl_error_msg = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'txt_ruta
@@ -632,36 +632,38 @@ Partial Class frmTareaEco
         Me.Label2.TabIndex = 47
         Me.Label2.Text = "Grupo procesado"
         '
-        'lbl_error_msg
-        '
-        Me.lbl_error_msg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_error_msg.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_error_msg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lbl_error_msg.Location = New System.Drawing.Point(89, 313)
-        Me.lbl_error_msg.Name = "lbl_error_msg"
-        Me.lbl_error_msg.Size = New System.Drawing.Size(415, 19)
-        Me.lbl_error_msg.TabIndex = 48
-        '
         'lbl_cant
         '
         Me.lbl_cant.BackColor = System.Drawing.SystemColors.Control
         Me.lbl_cant.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_cant.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_cant.ForeColor = System.Drawing.Color.Navy
-        Me.lbl_cant.Location = New System.Drawing.Point(448, 281)
+        Me.lbl_cant.Location = New System.Drawing.Point(591, 309)
         Me.lbl_cant.Name = "lbl_cant"
         Me.lbl_cant.Size = New System.Drawing.Size(55, 17)
         Me.lbl_cant.TabIndex = 49
         Me.lbl_cant.Text = "0"
         Me.lbl_cant.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lbl_error_msg
+        '
+        Me.lbl_error_msg.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.lbl_error_msg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl_error_msg.ForeColor = System.Drawing.Color.Maroon
+        Me.lbl_error_msg.Location = New System.Drawing.Point(84, 281)
+        Me.lbl_error_msg.Multiline = True
+        Me.lbl_error_msg.Name = "lbl_error_msg"
+        Me.lbl_error_msg.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.lbl_error_msg.Size = New System.Drawing.Size(588, 96)
+        Me.lbl_error_msg.TabIndex = 50
+        '
         'frmTareaEco
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(703, 341)
-        Me.Controls.Add(Me.lbl_cant)
+        Me.ClientSize = New System.Drawing.Size(703, 392)
         Me.Controls.Add(Me.lbl_error_msg)
+        Me.Controls.Add(Me.lbl_cant)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.pgbar_avance)
         Me.Controls.Add(Me.ListBox1)
@@ -785,7 +787,7 @@ Partial Class frmTareaEco
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents pgbar_avance As System.Windows.Forms.ProgressBar
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents lbl_error_msg As System.Windows.Forms.Label
     Friend WithEvents lbl_cant As System.Windows.Forms.Label
+    Friend WithEvents lbl_error_msg As System.Windows.Forms.TextBox
 
 End Class

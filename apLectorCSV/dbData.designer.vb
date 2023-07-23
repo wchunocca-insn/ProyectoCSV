@@ -117,6 +117,13 @@ Partial Public Class dbDataDataContext
 			Return Me.GetTable(Of eco_tempo_N5)
 		End Get
 	End Property
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.pms_ecomin_mtTareaCVS")>  _
+	Public Function pms_ecomin_mtTareaCVS(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(15)")> ByVal s_key As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(20)")> ByVal s_parm1 As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(20)")> ByVal s_parm2 As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(20)")> ByVal s_parm3 As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(250)")> ByRef s_msgError As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), s_key, s_parm1, s_parm2, s_parm3, s_msgError)
+		s_msgError = CType(result.GetParameterValue(4),String)
+		Return CType(result.ReturnValue,Integer)
+	End Function
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.eco_tempo_N1")>  _
@@ -173,11 +180,11 @@ Partial Public Class eco_tempo_N1
 	
 	Private _TIPO_ACT_PROY_NOMBRE As String
 	
-	Private _PRODUCTO_PROYECTO As System.Nullable(Of Double)
+	Private _PRODUCTO_PROYECTO As String
 	
 	Private _PRODUCTO_PROYECTO_NOMBRE As String
 	
-	Private _ACTIVIDAD_ACCION_OBRA As System.Nullable(Of Double)
+	Private _ACTIVIDAD_ACCION_OBRA As String
 	
 	Private _ACTIVIDAD_ACCION_OBRA_NOMBRE As String
 	
@@ -366,7 +373,7 @@ Partial Public Class eco_tempo_N1
     End Sub
     Partial Private Sub OnTIPO_ACT_PROY_NOMBREChanged()
     End Sub
-    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As String)
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTOChanged()
     End Sub
@@ -374,7 +381,7 @@ Partial Public Class eco_tempo_N1
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTO_NOMBREChanged()
     End Sub
-    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As String)
     End Sub
     Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanged()
     End Sub
@@ -938,13 +945,13 @@ Partial Public Class eco_tempo_N1
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="Float")>  _
-	Public Property PRODUCTO_PROYECTO() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="VarChar(250)")>  _
+	Public Property PRODUCTO_PROYECTO() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO
 		End Get
 		Set
-			If (Me._PRODUCTO_PROYECTO.Equals(value) = false) Then
+			If (String.Equals(Me._PRODUCTO_PROYECTO, value) = false) Then
 				Me.OnPRODUCTO_PROYECTOChanging(value)
 				Me.SendPropertyChanging
 				Me._PRODUCTO_PROYECTO = value
@@ -954,7 +961,7 @@ Partial Public Class eco_tempo_N1
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="NVarChar(255)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="VarChar(350)")>  _
 	Public Property PRODUCTO_PROYECTO_NOMBRE() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO_NOMBRE
@@ -970,13 +977,13 @@ Partial Public Class eco_tempo_N1
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="Float")>  _
-	Public Property ACTIVIDAD_ACCION_OBRA() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="VarChar(250)")>  _
+	Public Property ACTIVIDAD_ACCION_OBRA() As String
 		Get
 			Return Me._ACTIVIDAD_ACCION_OBRA
 		End Get
 		Set
-			If (Me._ACTIVIDAD_ACCION_OBRA.Equals(value) = false) Then
+			If (String.Equals(Me._ACTIVIDAD_ACCION_OBRA, value) = false) Then
 				Me.OnACTIVIDAD_ACCION_OBRAChanging(value)
 				Me.SendPropertyChanging
 				Me._ACTIVIDAD_ACCION_OBRA = value
@@ -1731,11 +1738,11 @@ Partial Public Class eco_tempo_N2
 	
 	Private _TIPO_ACT_PROY_NOMBRE As String
 	
-	Private _PRODUCTO_PROYECTO As System.Nullable(Of Double)
+	Private _PRODUCTO_PROYECTO As String
 	
 	Private _PRODUCTO_PROYECTO_NOMBRE As String
 	
-	Private _ACTIVIDAD_ACCION_OBRA As System.Nullable(Of Double)
+	Private _ACTIVIDAD_ACCION_OBRA As String
 	
 	Private _ACTIVIDAD_ACCION_OBRA_NOMBRE As String
 	
@@ -1924,7 +1931,7 @@ Partial Public Class eco_tempo_N2
     End Sub
     Partial Private Sub OnTIPO_ACT_PROY_NOMBREChanged()
     End Sub
-    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As String)
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTOChanged()
     End Sub
@@ -1932,7 +1939,7 @@ Partial Public Class eco_tempo_N2
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTO_NOMBREChanged()
     End Sub
-    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As String)
     End Sub
     Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanged()
     End Sub
@@ -2496,13 +2503,13 @@ Partial Public Class eco_tempo_N2
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="Float")>  _
-	Public Property PRODUCTO_PROYECTO() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="VarChar(250)")>  _
+	Public Property PRODUCTO_PROYECTO() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO
 		End Get
 		Set
-			If (Me._PRODUCTO_PROYECTO.Equals(value) = false) Then
+			If (String.Equals(Me._PRODUCTO_PROYECTO, value) = false) Then
 				Me.OnPRODUCTO_PROYECTOChanging(value)
 				Me.SendPropertyChanging
 				Me._PRODUCTO_PROYECTO = value
@@ -2512,7 +2519,7 @@ Partial Public Class eco_tempo_N2
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="NVarChar(255)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="VarChar(350)")>  _
 	Public Property PRODUCTO_PROYECTO_NOMBRE() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO_NOMBRE
@@ -2528,13 +2535,13 @@ Partial Public Class eco_tempo_N2
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="Float")>  _
-	Public Property ACTIVIDAD_ACCION_OBRA() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="VarChar(250)")>  _
+	Public Property ACTIVIDAD_ACCION_OBRA() As String
 		Get
 			Return Me._ACTIVIDAD_ACCION_OBRA
 		End Get
 		Set
-			If (Me._ACTIVIDAD_ACCION_OBRA.Equals(value) = false) Then
+			If (String.Equals(Me._ACTIVIDAD_ACCION_OBRA, value) = false) Then
 				Me.OnACTIVIDAD_ACCION_OBRAChanging(value)
 				Me.SendPropertyChanging
 				Me._ACTIVIDAD_ACCION_OBRA = value
@@ -3289,11 +3296,11 @@ Partial Public Class eco_tempo_N3
 	
 	Private _TIPO_ACT_PROY_NOMBRE As String
 	
-	Private _PRODUCTO_PROYECTO As System.Nullable(Of Double)
+	Private _PRODUCTO_PROYECTO As String
 	
 	Private _PRODUCTO_PROYECTO_NOMBRE As String
 	
-	Private _ACTIVIDAD_ACCION_OBRA As System.Nullable(Of Double)
+	Private _ACTIVIDAD_ACCION_OBRA As String
 	
 	Private _ACTIVIDAD_ACCION_OBRA_NOMBRE As String
 	
@@ -3482,7 +3489,7 @@ Partial Public Class eco_tempo_N3
     End Sub
     Partial Private Sub OnTIPO_ACT_PROY_NOMBREChanged()
     End Sub
-    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As String)
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTOChanged()
     End Sub
@@ -3490,7 +3497,7 @@ Partial Public Class eco_tempo_N3
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTO_NOMBREChanged()
     End Sub
-    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As String)
     End Sub
     Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanged()
     End Sub
@@ -4054,13 +4061,13 @@ Partial Public Class eco_tempo_N3
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="Float")>  _
-	Public Property PRODUCTO_PROYECTO() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="VarChar(250)")>  _
+	Public Property PRODUCTO_PROYECTO() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO
 		End Get
 		Set
-			If (Me._PRODUCTO_PROYECTO.Equals(value) = false) Then
+			If (String.Equals(Me._PRODUCTO_PROYECTO, value) = false) Then
 				Me.OnPRODUCTO_PROYECTOChanging(value)
 				Me.SendPropertyChanging
 				Me._PRODUCTO_PROYECTO = value
@@ -4070,7 +4077,7 @@ Partial Public Class eco_tempo_N3
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="NVarChar(255)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="VarChar(350)")>  _
 	Public Property PRODUCTO_PROYECTO_NOMBRE() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO_NOMBRE
@@ -4086,13 +4093,13 @@ Partial Public Class eco_tempo_N3
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="Float")>  _
-	Public Property ACTIVIDAD_ACCION_OBRA() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="VarChar(250)")>  _
+	Public Property ACTIVIDAD_ACCION_OBRA() As String
 		Get
 			Return Me._ACTIVIDAD_ACCION_OBRA
 		End Get
 		Set
-			If (Me._ACTIVIDAD_ACCION_OBRA.Equals(value) = false) Then
+			If (String.Equals(Me._ACTIVIDAD_ACCION_OBRA, value) = false) Then
 				Me.OnACTIVIDAD_ACCION_OBRAChanging(value)
 				Me.SendPropertyChanging
 				Me._ACTIVIDAD_ACCION_OBRA = value
@@ -4847,11 +4854,11 @@ Partial Public Class eco_tempo_N4
 	
 	Private _TIPO_ACT_PROY_NOMBRE As String
 	
-	Private _PRODUCTO_PROYECTO As System.Nullable(Of Double)
+	Private _PRODUCTO_PROYECTO As String
 	
 	Private _PRODUCTO_PROYECTO_NOMBRE As String
 	
-	Private _ACTIVIDAD_ACCION_OBRA As System.Nullable(Of Double)
+	Private _ACTIVIDAD_ACCION_OBRA As String
 	
 	Private _ACTIVIDAD_ACCION_OBRA_NOMBRE As String
 	
@@ -5040,7 +5047,7 @@ Partial Public Class eco_tempo_N4
     End Sub
     Partial Private Sub OnTIPO_ACT_PROY_NOMBREChanged()
     End Sub
-    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As String)
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTOChanged()
     End Sub
@@ -5048,7 +5055,7 @@ Partial Public Class eco_tempo_N4
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTO_NOMBREChanged()
     End Sub
-    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As String)
     End Sub
     Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanged()
     End Sub
@@ -5612,13 +5619,13 @@ Partial Public Class eco_tempo_N4
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="Float")>  _
-	Public Property PRODUCTO_PROYECTO() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="VarChar(250)")>  _
+	Public Property PRODUCTO_PROYECTO() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO
 		End Get
 		Set
-			If (Me._PRODUCTO_PROYECTO.Equals(value) = false) Then
+			If (String.Equals(Me._PRODUCTO_PROYECTO, value) = false) Then
 				Me.OnPRODUCTO_PROYECTOChanging(value)
 				Me.SendPropertyChanging
 				Me._PRODUCTO_PROYECTO = value
@@ -5628,7 +5635,7 @@ Partial Public Class eco_tempo_N4
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="NVarChar(255)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="VarChar(350)")>  _
 	Public Property PRODUCTO_PROYECTO_NOMBRE() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO_NOMBRE
@@ -5644,13 +5651,13 @@ Partial Public Class eco_tempo_N4
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="Float")>  _
-	Public Property ACTIVIDAD_ACCION_OBRA() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="VarChar(250)")>  _
+	Public Property ACTIVIDAD_ACCION_OBRA() As String
 		Get
 			Return Me._ACTIVIDAD_ACCION_OBRA
 		End Get
 		Set
-			If (Me._ACTIVIDAD_ACCION_OBRA.Equals(value) = false) Then
+			If (String.Equals(Me._ACTIVIDAD_ACCION_OBRA, value) = false) Then
 				Me.OnACTIVIDAD_ACCION_OBRAChanging(value)
 				Me.SendPropertyChanging
 				Me._ACTIVIDAD_ACCION_OBRA = value
@@ -6405,11 +6412,11 @@ Partial Public Class eco_tempo_N5
 	
 	Private _TIPO_ACT_PROY_NOMBRE As String
 	
-	Private _PRODUCTO_PROYECTO As System.Nullable(Of Double)
+	Private _PRODUCTO_PROYECTO As String
 	
 	Private _PRODUCTO_PROYECTO_NOMBRE As String
 	
-	Private _ACTIVIDAD_ACCION_OBRA As System.Nullable(Of Double)
+	Private _ACTIVIDAD_ACCION_OBRA As String
 	
 	Private _ACTIVIDAD_ACCION_OBRA_NOMBRE As String
 	
@@ -6598,7 +6605,7 @@ Partial Public Class eco_tempo_N5
     End Sub
     Partial Private Sub OnTIPO_ACT_PROY_NOMBREChanged()
     End Sub
-    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnPRODUCTO_PROYECTOChanging(value As String)
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTOChanged()
     End Sub
@@ -6606,7 +6613,7 @@ Partial Public Class eco_tempo_N5
     End Sub
     Partial Private Sub OnPRODUCTO_PROYECTO_NOMBREChanged()
     End Sub
-    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanging(value As String)
     End Sub
     Partial Private Sub OnACTIVIDAD_ACCION_OBRAChanged()
     End Sub
@@ -7170,13 +7177,13 @@ Partial Public Class eco_tempo_N5
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="Float")>  _
-	Public Property PRODUCTO_PROYECTO() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="VarChar(250)")>  _
+	Public Property PRODUCTO_PROYECTO() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO
 		End Get
 		Set
-			If (Me._PRODUCTO_PROYECTO.Equals(value) = false) Then
+			If (String.Equals(Me._PRODUCTO_PROYECTO, value) = false) Then
 				Me.OnPRODUCTO_PROYECTOChanging(value)
 				Me.SendPropertyChanging
 				Me._PRODUCTO_PROYECTO = value
@@ -7186,7 +7193,7 @@ Partial Public Class eco_tempo_N5
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="NVarChar(255)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="VarChar(350)")>  _
 	Public Property PRODUCTO_PROYECTO_NOMBRE() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO_NOMBRE
@@ -7202,13 +7209,13 @@ Partial Public Class eco_tempo_N5
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="Float")>  _
-	Public Property ACTIVIDAD_ACCION_OBRA() As System.Nullable(Of Double)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="VarChar(250)")>  _
+	Public Property ACTIVIDAD_ACCION_OBRA() As String
 		Get
 			Return Me._ACTIVIDAD_ACCION_OBRA
 		End Get
 		Set
-			If (Me._ACTIVIDAD_ACCION_OBRA.Equals(value) = false) Then
+			If (String.Equals(Me._ACTIVIDAD_ACCION_OBRA, value) = false) Then
 				Me.OnACTIVIDAD_ACCION_OBRAChanging(value)
 				Me.SendPropertyChanging
 				Me._ACTIVIDAD_ACCION_OBRA = value

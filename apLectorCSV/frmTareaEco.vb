@@ -15,7 +15,7 @@ Public Class frmTareaEco
     Public s_cvs_archivo_intranet As String = "" 'nombre de archivo para guardar en BD
     ' Dim cn As SqlConnection
 
-
+    Dim b_stop_proceso As Boolean = False
 
     Function ifx_do_validar(ByVal _snameFile As String) As String
 
@@ -110,7 +110,7 @@ Public Class frmTareaEco
 
     End Sub
     Private Sub ifx_do_updateAvanceTarea()
-        If i_completo = 20 Then '20
+        If i_completo = 1 Then '20
             ' If i_completo = 1 Then
 
             b_cvs_procesado = True
@@ -126,26 +126,28 @@ Public Class frmTareaEco
     Public Sub ifx_set_ErrorStop()
 
         lbl_error_msg.Text = s_cvs_error
+        b_stop_proceso = True
         bkw_tarea.CancelAsync()
-        bkw_tarea02.CancelAsync()
-        bkw_tarea03.CancelAsync()
-        bkw_tarea04.CancelAsync()
-        bkw_tarea05.CancelAsync()
-        bkw_tarea06.CancelAsync()
-        bkw_tarea07.CancelAsync()
-        bkw_tarea08.CancelAsync()
-        bkw_tarea09.CancelAsync()
-        bkw_tarea10.CancelAsync()
-        bkw_tarea11.CancelAsync()
-        bkw_tarea12.CancelAsync()
-        bkw_tarea13.CancelAsync()
-        bkw_tarea14.CancelAsync()
-        bkw_tarea15.CancelAsync()
-        bkw_tarea16.CancelAsync()
-        bkw_tarea17.CancelAsync()
-        bkw_tarea18.CancelAsync()
-        bkw_tarea19.CancelAsync()
-        bkw_tarea20.CancelAsync()
+
+        'bkw_tarea02.CancelAsync()
+        'bkw_tarea03.CancelAsync()
+        'bkw_tarea04.CancelAsync()
+        'bkw_tarea05.CancelAsync()
+        'bkw_tarea06.CancelAsync()
+        'bkw_tarea07.CancelAsync()
+        'bkw_tarea08.CancelAsync()
+        'bkw_tarea09.CancelAsync()
+        'bkw_tarea10.CancelAsync()
+        'bkw_tarea11.CancelAsync()
+        'bkw_tarea12.CancelAsync()
+        'bkw_tarea13.CancelAsync()
+        'bkw_tarea14.CancelAsync()
+        'bkw_tarea15.CancelAsync()
+        'bkw_tarea16.CancelAsync()
+        'bkw_tarea17.CancelAsync()
+        'bkw_tarea18.CancelAsync()
+        'bkw_tarea19.CancelAsync()
+        'bkw_tarea20.CancelAsync()
 
     End Sub
     Public Sub ifx_do_procesarCVS()
@@ -155,6 +157,21 @@ Public Class frmTareaEco
         If gs_nombreArchivo = "" Then
             Exit Sub
         End If
+
+
+        'borrar las tablas temporales
+        Try
+            Dim dc As New dbDataDataContext
+            dc.pms_ecomin_mtTareaCVS("clear", "", "", "", s_cvs_error)
+            dc = Nothing
+            If s_cvs_error <> "" Then
+                lbl_error_msg.Text = s_cvs_error
+                Exit Sub
+            End If
+
+        Catch ex As Exception
+
+        End Try
 
 
         Dim nombreFile$ = gs_nombreArchivo
@@ -181,28 +198,28 @@ Public Class frmTareaEco
         'cn.Open()
 
         bkw_tarea.RunWorkerAsync()
-        bkw_tarea02.RunWorkerAsync()
-        bkw_tarea03.RunWorkerAsync()
-        bkw_tarea04.RunWorkerAsync()
-        bkw_tarea05.RunWorkerAsync()
+        'bkw_tarea02.RunWorkerAsync()
+        'bkw_tarea03.RunWorkerAsync()
+        'bkw_tarea04.RunWorkerAsync()
+        'bkw_tarea05.RunWorkerAsync()
 
 
-        bkw_tarea06.RunWorkerAsync()
-        bkw_tarea07.RunWorkerAsync()
-        bkw_tarea08.RunWorkerAsync()
-        bkw_tarea09.RunWorkerAsync()
-        bkw_tarea10.RunWorkerAsync()
+        'bkw_tarea06.RunWorkerAsync()
+        'bkw_tarea07.RunWorkerAsync()
+        'bkw_tarea08.RunWorkerAsync()
+        'bkw_tarea09.RunWorkerAsync()
+        'bkw_tarea10.RunWorkerAsync()
 
-        bkw_tarea11.RunWorkerAsync()
-        bkw_tarea12.RunWorkerAsync()
-        bkw_tarea13.RunWorkerAsync()
-        bkw_tarea14.RunWorkerAsync()
-        bkw_tarea15.RunWorkerAsync()
-        bkw_tarea16.RunWorkerAsync()
-        bkw_tarea17.RunWorkerAsync()
-        bkw_tarea18.RunWorkerAsync()
-        bkw_tarea19.RunWorkerAsync()
-        bkw_tarea20.RunWorkerAsync()
+        'bkw_tarea11.RunWorkerAsync()
+        'bkw_tarea12.RunWorkerAsync()
+        'bkw_tarea13.RunWorkerAsync()
+        'bkw_tarea14.RunWorkerAsync()
+        'bkw_tarea15.RunWorkerAsync()
+        'bkw_tarea16.RunWorkerAsync()
+        'bkw_tarea17.RunWorkerAsync()
+        'bkw_tarea18.RunWorkerAsync()
+        'bkw_tarea19.RunWorkerAsync()
+        'bkw_tarea20.RunWorkerAsync()
 
     End Sub
     'Lectura de filas y transferencia al SQL
@@ -255,11 +272,15 @@ Public Class frmTareaEco
 
 
         Dim i_row% = 1
-
+        Dim i_col_error = 0
         For i = i_inicio To i_final
             Dim filasDatos = listCVS(i).Split(separador)
+
             i_porcent = (i_row * 100 / i_total_filas)
 
+            If b_stop_proceso = True Then
+                Exit Sub
+            End If
             Try
                 Select Case igrupo
                     Case 1, 6, 11, 16
@@ -271,7 +292,8 @@ Public Class frmTareaEco
                         bo.imp_nro = i
                         bo.imp_nrofor = i_row
                         bo.imp_nrogrupo = igrupo
-                        '
+                        'ok
+
                         bo.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
                         bo.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
                         bo.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
@@ -292,19 +314,27 @@ Public Class frmTareaEco
                         bo.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
                         bo.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
                         bo.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-                        bo.TIPO_ACT_PROY = s.int(filasDatos(20)) '21 TIPO_ACT_PROY (int)
-                        bo.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) '22 TIPO_ACT_PROY_NOMBRE (texto)
+
+
+
+                        bo.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
+                        bo.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
                         bo.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-                        bo.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-                        bo.FUNCION = s.int(filasDatos(26)) '27 FUNCION (int)
-                        bo.FUNCION_NOMBRE = s.str(filasDatos(27)) '28 FUNCION_NOMBRE (texto)
-                        bo.DIVISION_FUNCIONAL = s.int(filasDatos(28)) '29 DIVISION_FUNCIONAL (int)
-                        bo.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo.GRUPO_FUNCIONAL = s.int(filasDatos(30)) '31 GRUPO_FUNCIONAL (int)
-                        bo.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo.META = s.int(filasDatos(32)) '33 META (int)
+                        bo.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
+
+                        bo.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
+                        bo.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
+
+
+                        bo.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
+                        bo.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
+                        bo.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
+                        bo.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
+                        bo.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
+                        bo.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
+                        bo.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
+
+
                         bo.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
                         bo.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
                         bo.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
@@ -341,12 +371,14 @@ Public Class frmTareaEco
                         bo = Nothing
                     Case 2, 7, 12, 17
                         Dim bo2 As New eco_tempo_N2
+              
                         bo2.cvs_nombreEje = s_cvs_archivo_intranet
                         bo2.imp_fecha = Now
                         bo2.imp_nro = i
                         bo2.imp_nrofor = i_row
                         bo2.imp_nrogrupo = igrupo
-                        '
+                        'ok
+
                         bo2.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
                         bo2.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
                         bo2.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
@@ -367,19 +399,27 @@ Public Class frmTareaEco
                         bo2.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
                         bo2.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
                         bo2.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-                        bo2.TIPO_ACT_PROY = s.int(filasDatos(20)) '21 TIPO_ACT_PROY (int)
-                        bo2.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) '22 TIPO_ACT_PROY_NOMBRE (texto)
+
+
+
+                        bo2.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
+                        bo2.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
                         bo2.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo2.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-                        bo2.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo2.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-                        bo2.FUNCION = s.int(filasDatos(26)) '27 FUNCION (int)
-                        bo2.FUNCION_NOMBRE = s.str(filasDatos(27)) '28 FUNCION_NOMBRE (texto)
-                        bo2.DIVISION_FUNCIONAL = s.int(filasDatos(28)) '29 DIVISION_FUNCIONAL (int)
-                        bo2.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo2.GRUPO_FUNCIONAL = s.int(filasDatos(30)) '31 GRUPO_FUNCIONAL (int)
-                        bo2.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo2.META = s.int(filasDatos(32)) '33 META (int)
+                        bo2.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
+
+                        bo2.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
+                        bo2.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
+
+
+                        bo2.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
+                        bo2.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
+                        bo2.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
+                        bo2.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
+                        bo2.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
+                        bo2.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
+                        bo2.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
+
+
                         bo2.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
                         bo2.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
                         bo2.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
@@ -411,7 +451,6 @@ Public Class frmTareaEco
                         bo2.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
                         bo2.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
 
-
                         ilist2.Add(bo2)
                         bo2 = Nothing
                     Case 3, 8, 13, 18
@@ -421,7 +460,8 @@ Public Class frmTareaEco
                         bo3.imp_nro = i
                         bo3.imp_nrofor = i_row
                         bo3.imp_nrogrupo = igrupo
-                        '
+                        'ok
+
                         bo3.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
                         bo3.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
                         bo3.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
@@ -442,19 +482,27 @@ Public Class frmTareaEco
                         bo3.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
                         bo3.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
                         bo3.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-                        bo3.TIPO_ACT_PROY = s.int(filasDatos(20)) '21 TIPO_ACT_PROY (int)
-                        bo3.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) '22 TIPO_ACT_PROY_NOMBRE (texto)
+
+
+
+                        bo3.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
+                        bo3.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
                         bo3.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo3.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-                        bo3.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo3.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-                        bo3.FUNCION = s.int(filasDatos(26)) '27 FUNCION (int)
-                        bo3.FUNCION_NOMBRE = s.str(filasDatos(27)) '28 FUNCION_NOMBRE (texto)
-                        bo3.DIVISION_FUNCIONAL = s.int(filasDatos(28)) '29 DIVISION_FUNCIONAL (int)
-                        bo3.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo3.GRUPO_FUNCIONAL = s.int(filasDatos(30)) '31 GRUPO_FUNCIONAL (int)
-                        bo3.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo3.META = s.int(filasDatos(32)) '33 META (int)
+                        bo3.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
+
+                        bo3.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
+                        bo3.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
+
+
+                        bo3.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
+                        bo3.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
+                        bo3.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
+                        bo3.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
+                        bo3.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
+                        bo3.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
+                        bo3.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
+
+
                         bo3.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
                         bo3.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
                         bo3.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
@@ -496,7 +544,8 @@ Public Class frmTareaEco
                         bo4.imp_nro = i
                         bo4.imp_nrofor = i_row
                         bo4.imp_nrogrupo = igrupo
-                        '
+                        'ok
+
                         bo4.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
                         bo4.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
                         bo4.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
@@ -517,19 +566,27 @@ Public Class frmTareaEco
                         bo4.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
                         bo4.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
                         bo4.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-                        bo4.TIPO_ACT_PROY = s.int(filasDatos(20)) '21 TIPO_ACT_PROY (int)
-                        bo4.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) '22 TIPO_ACT_PROY_NOMBRE (texto)
+
+
+
+                        bo4.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
+                        bo4.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
                         bo4.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo4.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-                        bo4.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo4.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-                        bo4.FUNCION = s.int(filasDatos(26)) '27 FUNCION (int)
-                        bo4.FUNCION_NOMBRE = s.str(filasDatos(27)) '28 FUNCION_NOMBRE (texto)
-                        bo4.DIVISION_FUNCIONAL = s.int(filasDatos(28)) '29 DIVISION_FUNCIONAL (int)
-                        bo4.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo4.GRUPO_FUNCIONAL = s.int(filasDatos(30)) '31 GRUPO_FUNCIONAL (int)
-                        bo4.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo4.META = s.int(filasDatos(32)) '33 META (int)
+                        bo4.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
+
+                        bo4.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
+                        bo4.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
+
+
+                        bo4.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
+                        bo4.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
+                        bo4.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
+                        bo4.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
+                        bo4.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
+                        bo4.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
+                        bo4.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
+
+
                         bo4.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
                         bo4.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
                         bo4.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
@@ -571,7 +628,8 @@ Public Class frmTareaEco
                         bo5.imp_nro = i
                         bo5.imp_nrofor = i_row
                         bo5.imp_nrogrupo = igrupo
-                        '
+                        'ok
+
                         bo5.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
                         bo5.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
                         bo5.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
@@ -592,19 +650,27 @@ Public Class frmTareaEco
                         bo5.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
                         bo5.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
                         bo5.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-                        bo5.TIPO_ACT_PROY = s.int(filasDatos(20)) '21 TIPO_ACT_PROY (int)
-                        bo5.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) '22 TIPO_ACT_PROY_NOMBRE (texto)
+
+
+
+                        bo5.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
+                        bo5.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
                         bo5.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo5.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-                        bo5.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo5.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-                        bo5.FUNCION = s.int(filasDatos(26)) '27 FUNCION (int)
-                        bo5.FUNCION_NOMBRE = s.str(filasDatos(27)) '28 FUNCION_NOMBRE (texto)
-                        bo5.DIVISION_FUNCIONAL = s.int(filasDatos(28)) '29 DIVISION_FUNCIONAL (int)
-                        bo5.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo5.GRUPO_FUNCIONAL = s.int(filasDatos(30)) '31 GRUPO_FUNCIONAL (int)
-                        bo5.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo5.META = s.int(filasDatos(32)) '33 META (int)
+                        bo5.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
+
+                        bo5.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
+                        bo5.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
+
+
+                        bo5.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
+                        bo5.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
+                        bo5.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
+                        bo5.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
+                        bo5.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
+                        bo5.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
+                        bo5.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
+
+
                         bo5.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
                         bo5.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
                         bo5.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
@@ -640,7 +706,7 @@ Public Class frmTareaEco
                         bo5 = Nothing
                 End Select
             Catch ex As Exception
-                s_cvs_error = ex.Message
+                s_cvs_error = "Error asiagnacion:" + ex.Message + "Linea:[" + i_col_error.ToString + "]" + listCVS(i)
             End Try
 
 
@@ -686,7 +752,8 @@ Public Class frmTareaEco
                     End Select
                 End If
             Catch ex As Exception
-                s_cvs_error = ex.Message
+                s_cvs_error = "Error grabar linea:" + ex.Message + "Linea:[" + i_col_error.ToString + "]" + listCVS(i)
+
             End Try
 
 
@@ -775,12 +842,35 @@ Public Class frmTareaEco
 
 
         Catch ex As Exception
-            s_cvs_error = ex.Message
+            s_cvs_error = "Error grabar Utm:" + ex.Message
         End Try
         dc = Nothing
 
 
-
+        If s_cvs_error <> "" Then
+            Select Case igrupo
+                Case 1 : bkw_tarea.ReportProgress(i_porcent)
+                Case 2 : bkw_tarea02.ReportProgress(i_porcent)
+                Case 3 : bkw_tarea03.ReportProgress(i_porcent)
+                Case 4 : bkw_tarea04.ReportProgress(i_porcent)
+                Case 5 : bkw_tarea05.ReportProgress(i_porcent)
+                Case 6 : bkw_tarea06.ReportProgress(i_porcent)
+                Case 7 : bkw_tarea07.ReportProgress(i_porcent)
+                Case 8 : bkw_tarea08.ReportProgress(i_porcent)
+                Case 9 : bkw_tarea09.ReportProgress(i_porcent)
+                Case 10 : bkw_tarea10.ReportProgress(i_porcent)
+                Case 11 : bkw_tarea11.ReportProgress(i_porcent)
+                Case 12 : bkw_tarea12.ReportProgress(i_porcent)
+                Case 13 : bkw_tarea13.ReportProgress(i_porcent)
+                Case 14 : bkw_tarea14.ReportProgress(i_porcent)
+                Case 15 : bkw_tarea15.ReportProgress(i_porcent)
+                Case 16 : bkw_tarea16.ReportProgress(i_porcent)
+                Case 17 : bkw_tarea17.ReportProgress(i_porcent)
+                Case 18 : bkw_tarea18.ReportProgress(i_porcent)
+                Case 19 : bkw_tarea19.ReportProgress(i_porcent)
+                Case 20 : bkw_tarea20.ReportProgress(i_porcent)
+            End Select
+        End If
 
     End Sub
 
