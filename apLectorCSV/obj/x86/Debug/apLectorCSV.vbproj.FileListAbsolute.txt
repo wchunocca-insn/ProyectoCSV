@@ -1,0 +1,57 @@
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\bin\Debug\apLectorCSV.exe
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\bin\Debug\apLectorCSV.pdb
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\bin\Debug\apLectorCSV.xml
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\obj\x86\Debug\apLectorCSV.Form1.resources
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\obj\x86\Debug\apLectorCSV.Resources.resources
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\obj\x86\Debug\apLectorCSV.vbproj.GenerateResource.Cache
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\obj\x86\Debug\apLectorCSV.exe
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\obj\x86\Debug\apLectorCSV.xml
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\obj\x86\Debug\apLectorCSV.pdb
+C:\Users\celtic\AppData\Local\Temporary Projects\apLectorCSV\bin\Debug\apLectorCSV.exe.config
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe.config
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.exe
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.xml
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.pdb
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.pdb
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.xml
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.Resources.resources
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.vbproj.GenerateResource.Cache
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frmTareaEco.resources
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frm_servicioEnvio.resources
+C:\Users\celtic\Desktop\FormCSV\ReaderCSV\apLectorCSV\apLectorCSV\bin\Debug\tmpRES\CarpetaTemp.htm
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe.config
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.exe
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.xml
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.pdb
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\bin\Debug\tmpRES\CarpetaTemp.htm
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.pdb
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.xml
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frmTareaEco.resources
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frm_servicioEnvio.resources
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.Resources.resources
+C:\Users\wchunocca\Desktop\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.vbproj.GenerateResource.Cache
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe.config
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.exe
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.xml
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.pdb
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frmTareaEco.resources
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frm_servicioEnvio.resources
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.Resources.resources
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.vbproj.GenerateResource.Cache
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\bin\Debug\tmpRES\CarpetaTemp.htm
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.pdb
+E:\Compartidos\PROYECTO\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.xml
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe.config
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.exe
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.xml
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.pdb
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frmTareaEco.resources
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.Resources.resources
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.vbproj.GenerateResource.Cache
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\bin\Debug\tmpRES\CarpetaTemp.htm
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.exe
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.pdb
+C:\Users\celtic\Desktop\FormCSV\Fuente\apLectorCSV\apLectorCSV\bin\Debug\apLectorCSV.xml
