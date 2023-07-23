@@ -110,14 +110,14 @@ Public Class frmTareaEco
 
     End Sub
     Private Sub ifx_do_updateAvanceTarea()
-        If i_completo = 1 Then '20
+        If i_completo = 20 Then '20
             ' If i_completo = 1 Then
 
             b_cvs_procesado = True
             MessageBox.Show("Termino la tarea", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ' Me.Close()
             'cn.Close()
-
+            End
             Return
         End If
         pgbar_avance.Value = (i_completo * 100 / 20)
@@ -129,25 +129,25 @@ Public Class frmTareaEco
         b_stop_proceso = True
         bkw_tarea.CancelAsync()
 
-        'bkw_tarea02.CancelAsync()
-        'bkw_tarea03.CancelAsync()
-        'bkw_tarea04.CancelAsync()
-        'bkw_tarea05.CancelAsync()
-        'bkw_tarea06.CancelAsync()
-        'bkw_tarea07.CancelAsync()
-        'bkw_tarea08.CancelAsync()
-        'bkw_tarea09.CancelAsync()
-        'bkw_tarea10.CancelAsync()
-        'bkw_tarea11.CancelAsync()
-        'bkw_tarea12.CancelAsync()
-        'bkw_tarea13.CancelAsync()
-        'bkw_tarea14.CancelAsync()
-        'bkw_tarea15.CancelAsync()
-        'bkw_tarea16.CancelAsync()
-        'bkw_tarea17.CancelAsync()
-        'bkw_tarea18.CancelAsync()
-        'bkw_tarea19.CancelAsync()
-        'bkw_tarea20.CancelAsync()
+        bkw_tarea02.CancelAsync()
+        bkw_tarea03.CancelAsync()
+        bkw_tarea04.CancelAsync()
+        bkw_tarea05.CancelAsync()
+        bkw_tarea06.CancelAsync()
+        bkw_tarea07.CancelAsync()
+        bkw_tarea08.CancelAsync()
+        bkw_tarea09.CancelAsync()
+        bkw_tarea10.CancelAsync()
+        bkw_tarea11.CancelAsync()
+        bkw_tarea12.CancelAsync()
+        bkw_tarea13.CancelAsync()
+        bkw_tarea14.CancelAsync()
+        bkw_tarea15.CancelAsync()
+        bkw_tarea16.CancelAsync()
+        bkw_tarea17.CancelAsync()
+        bkw_tarea18.CancelAsync()
+        bkw_tarea19.CancelAsync()
+        bkw_tarea20.CancelAsync()
 
     End Sub
     Public Sub ifx_do_procesarCVS()
@@ -198,28 +198,28 @@ Public Class frmTareaEco
         'cn.Open()
 
         bkw_tarea.RunWorkerAsync()
-        'bkw_tarea02.RunWorkerAsync()
-        'bkw_tarea03.RunWorkerAsync()
-        'bkw_tarea04.RunWorkerAsync()
-        'bkw_tarea05.RunWorkerAsync()
+        bkw_tarea02.RunWorkerAsync()
+        bkw_tarea03.RunWorkerAsync()
+        bkw_tarea04.RunWorkerAsync()
+        bkw_tarea05.RunWorkerAsync()
 
 
-        'bkw_tarea06.RunWorkerAsync()
-        'bkw_tarea07.RunWorkerAsync()
-        'bkw_tarea08.RunWorkerAsync()
-        'bkw_tarea09.RunWorkerAsync()
-        'bkw_tarea10.RunWorkerAsync()
+        bkw_tarea06.RunWorkerAsync()
+        bkw_tarea07.RunWorkerAsync()
+        bkw_tarea08.RunWorkerAsync()
+        bkw_tarea09.RunWorkerAsync()
+        bkw_tarea10.RunWorkerAsync()
 
-        'bkw_tarea11.RunWorkerAsync()
-        'bkw_tarea12.RunWorkerAsync()
-        'bkw_tarea13.RunWorkerAsync()
-        'bkw_tarea14.RunWorkerAsync()
-        'bkw_tarea15.RunWorkerAsync()
-        'bkw_tarea16.RunWorkerAsync()
-        'bkw_tarea17.RunWorkerAsync()
-        'bkw_tarea18.RunWorkerAsync()
-        'bkw_tarea19.RunWorkerAsync()
-        'bkw_tarea20.RunWorkerAsync()
+        bkw_tarea11.RunWorkerAsync()
+        bkw_tarea12.RunWorkerAsync()
+        bkw_tarea13.RunWorkerAsync()
+        bkw_tarea14.RunWorkerAsync()
+        bkw_tarea15.RunWorkerAsync()
+        bkw_tarea16.RunWorkerAsync()
+        bkw_tarea17.RunWorkerAsync()
+        bkw_tarea18.RunWorkerAsync()
+        bkw_tarea19.RunWorkerAsync()
+        bkw_tarea20.RunWorkerAsync()
 
     End Sub
     'Lectura de filas y transferencia al SQL
