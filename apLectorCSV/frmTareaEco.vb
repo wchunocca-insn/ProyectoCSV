@@ -112,13 +112,14 @@ Public Class frmTareaEco
     Private Sub ifx_do_updateAvanceTarea()
         If i_completo = 20 Then '20
             ' If i_completo = 1 Then
-
             b_cvs_procesado = True
             If s_cvs_error <> "" Then Exit Sub
             End
             Return
         End If
         pgbar_avance.Value = (i_completo * 100 / 20)
+        '        pgbar_avance.Value = (i_completo * 100 / 20)
+
     End Sub
     Public Sub ifx_set_ErrorStop()
 
@@ -225,11 +226,14 @@ Public Class frmTareaEco
         Dim itotal% = listCVS.Length - 1
         Dim icant_grupo% = itotal / 20 'total por grupo
 
+
         'Determinar el numero de orden de inicio y fin del Rango
         If (igrupo = 1) Then 'inicio
             i_inicio = 1
             i_final = icant_grupo
+            ' ElseIf (igrupo = 20) Then ' grupo Final
         ElseIf (igrupo = 20) Then ' grupo Final
+            '            i_inicio = (icant_grupo * 19) + 1
             i_inicio = (icant_grupo * 19) + 1
             i_final = itotal
         Else
@@ -314,44 +318,45 @@ Public Class frmTareaEco
                         bo.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
 
 
-                        bo.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
-                        bo.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
-                        bo.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
-                        bo.DEPARTAMENTO_META_NOMBRE = s.str(filasDatos(36)) '37 DEPARTAMENTO_META_NOMBRE (texto)
-                        bo.FUENTE_FINANCIAMIENTO = s.int(filasDatos(37)) '38 FUENTE_FINANCIAMIENTO (int)
-                        bo.FUENTE_FINANCIAMIENTO_NOMBRE = s.str(filasDatos(38)) '39 FUENTE_FINANCIAMIENTO_NOMBRE (texto)
-                        bo.RUBRO = s.int(filasDatos(39)) '40 RUBRO (int)
-                        bo.RUBRO_NOMBRE = s.str(filasDatos(40)) '41 RUBRO_NOMBRE (texto)
-                        bo.TIPO_RECURSO = s.int(filasDatos(41)) '42 TIPO_RECURSO (int)
-                        bo.TIPO_RECURSO_NOMBRE = s.str(filasDatos(42)) '43 TIPO_RECURSO_NOMBRE (texto)
-                        bo.CATEGORIA_GASTO = s.int(filasDatos(43)) '44 CATEGORIA_GASTO (int)
-                        bo.CATEGORIA_GASTO_NOMBRE = s.str(filasDatos(44)) '45 CATEGORIA_GASTO_NOMBRE (texto)
-                        bo.TIPO_TRANSACCION = s.int(filasDatos(45)) '46 TIPO_TRANSACCION (int)
-                        bo.GENERICA = s.int(filasDatos(46)) '47 GENERICA (int)
-                        bo.GENERICA_NOMBRE = s.str(filasDatos(47)) '48 GENERICA_NOMBRE (texto)
-                        bo.SUBGENERICA = s.int(filasDatos(48)) '49 SUBGENERICA (int)
-                        bo.SUBGENERICA_NOMBRE = s.str(filasDatos(49)) '50 SUBGENERICA_NOMBRE (texto)
-                        bo.SUBGENERICA_DET = s.int(filasDatos(50)) '51 SUBGENERICA_DET (int)
-                        bo.SUBGENERICA_DET_NOMBRE = s.str(filasDatos(51)) '52 SUBGENERICA_DET_NOMBRE (texto)
-                        bo.ESPECIFICA = s.int(filasDatos(52)) '53 ESPECIFICA (int)
-                        bo.ESPECIFICA_NOMBRE = s.str(filasDatos(53)) '54 ESPECIFICA_NOMBRE (texto)
-                        bo.ESPECIFICA_DET = s.int(filasDatos(54)) '55 ESPECIFICA_DET (int)
-                        bo.ESPECIFICA_DET_NOMBRE = s.str(filasDatos(55)) '56 ESPECIFICA_DET_NOMBRE (texto)
-                        bo.MONTO_PIA = s.dob(filasDatos(56)) '57 MONTO_PIA (decimal)
-                        bo.MONTO_PIM = s.dob(filasDatos(57)) '58 MONTO_PIM (decimal)
-                        bo.MONTO_CERTIFICADO = s.dob(filasDatos(58)) '59 MONTO_CERTIFICADO (decimal)
-                        bo.MONTO_COMPROMETIDO_ANUAL = s.dob(filasDatos(59)) '60 MONTO_COMPROMETIDO_ANUAL (decimal)
-                        bo.MONTO_COMPROMETIDO = s.dob(filasDatos(60)) '61 MONTO_COMPROMETIDO (decimal)
-                        bo.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
-                        bo.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
+                bo.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
+                bo.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
+                bo.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
+                bo.DEPARTAMENTO_META_NOMBRE = s.str(filasDatos(36)) '37 DEPARTAMENTO_META_NOMBRE (texto)
+                bo.FUENTE_FINANCIAMIENTO = s.int(filasDatos(37)) '38 FUENTE_FINANCIAMIENTO (int)
+                bo.FUENTE_FINANCIAMIENTO_NOMBRE = s.str(filasDatos(38)) '39 FUENTE_FINANCIAMIENTO_NOMBRE (texto)
+                bo.RUBRO = s.int(filasDatos(39)) '40 RUBRO (int)
+                bo.RUBRO_NOMBRE = s.str(filasDatos(40)) '41 RUBRO_NOMBRE (texto)
+                bo.TIPO_RECURSO = s.int(filasDatos(41)) '42 TIPO_RECURSO (int)
+                bo.TIPO_RECURSO_NOMBRE = s.str(filasDatos(42)) '43 TIPO_RECURSO_NOMBRE (texto)
+                bo.CATEGORIA_GASTO = s.int(filasDatos(43)) '44 CATEGORIA_GASTO (int)
+                bo.CATEGORIA_GASTO_NOMBRE = s.str(filasDatos(44)) '45 CATEGORIA_GASTO_NOMBRE (texto)
+                bo.TIPO_TRANSACCION = s.int(filasDatos(45)) '46 TIPO_TRANSACCION (int)
+                bo.GENERICA = s.int(filasDatos(46)) '47 GENERICA (int)
+                bo.GENERICA_NOMBRE = s.str(filasDatos(47)) '48 GENERICA_NOMBRE (texto)
+                bo.SUBGENERICA = s.int(filasDatos(48)) '49 SUBGENERICA (int)
+                bo.SUBGENERICA_NOMBRE = s.str(filasDatos(49)) '50 SUBGENERICA_NOMBRE (texto)
+                bo.SUBGENERICA_DET = s.int(filasDatos(50)) '51 SUBGENERICA_DET (int)
+                bo.SUBGENERICA_DET_NOMBRE = s.str(filasDatos(51)) '52 SUBGENERICA_DET_NOMBRE (texto)
+                bo.ESPECIFICA = s.int(filasDatos(52)) '53 ESPECIFICA (int)
+                bo.ESPECIFICA_NOMBRE = s.str(filasDatos(53)) '54 ESPECIFICA_NOMBRE (texto)
+                bo.ESPECIFICA_DET = s.int(filasDatos(54)) '55 ESPECIFICA_DET (int)
+                bo.ESPECIFICA_DET_NOMBRE = s.str(filasDatos(55)) '56 ESPECIFICA_DET_NOMBRE (texto)
+                bo.MONTO_PIA = s.dob(filasDatos(56)) '57 MONTO_PIA (decimal)
+                bo.MONTO_PIM = s.dob(filasDatos(57)) '58 MONTO_PIM (decimal)
+                bo.MONTO_CERTIFICADO = s.dob(filasDatos(58)) '59 MONTO_CERTIFICADO (decimal)
+                bo.MONTO_COMPROMETIDO_ANUAL = s.dob(filasDatos(59)) '60 MONTO_COMPROMETIDO_ANUAL (decimal)
+                bo.MONTO_COMPROMETIDO = s.dob(filasDatos(60)) '61 MONTO_COMPROMETIDO (decimal)
+                bo.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
+                bo.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
                         '
                         '
-                        ilist.Add(bo)
-                        bo = Nothing
+                ilist.Add(bo)
+                filasDatos = Nothing
+                listCVS(i) = ""
+                bo = Nothing
                    
-
             Catch ex As Exception
-                s_cvs_error = "Error asiagnacion:" + ex.Message + "Linea:[" + i_col_error.ToString + "]" + listCVS(i)
+                s_cvs_error = "Error asiagnacion:" + ex.Message + "Linea:[" + i_col_error.ToString + "]"
             End Try
 
 
@@ -365,11 +370,12 @@ Public Class frmTareaEco
                     If ilist.Count = gs_packEnvioInsert Then
                         dc.eco_tempo.InsertAllOnSubmit(ilist)
                         dc.SubmitChanges()
+                        ilist.Clear()
                         ilist = New List(Of eco_tempo)
                     End If
                 End If
             Catch ex As Exception
-                s_cvs_error = "Error grabar linea:" + ex.Message + "Linea:[" + i_col_error.ToString + "]" + listCVS(i)
+                s_cvs_error = "Error grabar linea:" + ex.Message + "Linea:[" + i_col_error.ToString + "]"
 
             End Try
 
@@ -426,6 +432,7 @@ Public Class frmTareaEco
         Catch ex As Exception
             s_cvs_error = "Error grabar Utm:" + ex.Message
         End Try
+
         dc = Nothing
 
 

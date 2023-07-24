@@ -577,7 +577,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NIVEL_GOBIERNO", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NIVEL_GOBIERNO", DbType:="VarChar(MAX)")>  _
 	Public Property NIVEL_GOBIERNO() As String
 		Get
 			Return Me._NIVEL_GOBIERNO
@@ -593,7 +593,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NIVEL_GOBIERNO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NIVEL_GOBIERNO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property NIVEL_GOBIERNO_NOMBRE() As String
 		Get
 			Return Me._NIVEL_GOBIERNO_NOMBRE
@@ -625,7 +625,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SECTOR_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SECTOR_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property SECTOR_NOMBRE() As String
 		Get
 			Return Me._SECTOR_NOMBRE
@@ -657,7 +657,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PLIEGO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PLIEGO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property PLIEGO_NOMBRE() As String
 		Get
 			Return Me._PLIEGO_NOMBRE
@@ -705,7 +705,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_EJECUTORA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_EJECUTORA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property EJECUTORA_NOMBRE() As String
 		Get
 			Return Me._EJECUTORA_NOMBRE
@@ -737,7 +737,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DEPARTAMENTO_EJECUTORA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DEPARTAMENTO_EJECUTORA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property DEPARTAMENTO_EJECUTORA_NOMBRE() As String
 		Get
 			Return Me._DEPARTAMENTO_EJECUTORA_NOMBRE
@@ -769,7 +769,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PROVINCIA_EJECUTORA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PROVINCIA_EJECUTORA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property PROVINCIA_EJECUTORA_NOMBRE() As String
 		Get
 			Return Me._PROVINCIA_EJECUTORA_NOMBRE
@@ -801,7 +801,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DISTRITO_EJECUTORA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DISTRITO_EJECUTORA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property DISTRITO_EJECUTORA_NOMBRE() As String
 		Get
 			Return Me._DISTRITO_EJECUTORA_NOMBRE
@@ -849,7 +849,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PROGRAMA_PPTO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PROGRAMA_PPTO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property PROGRAMA_PPTO_NOMBRE() As String
 		Get
 			Return Me._PROGRAMA_PPTO_NOMBRE
@@ -881,7 +881,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TIPO_ACT_PROY_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TIPO_ACT_PROY_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property TIPO_ACT_PROY_NOMBRE() As String
 		Get
 			Return Me._TIPO_ACT_PROY_NOMBRE
@@ -897,7 +897,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO", DbType:="VarChar(MAX)")>  _
 	Public Property PRODUCTO_PROYECTO() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO
@@ -913,7 +913,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PRODUCTO_PROYECTO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property PRODUCTO_PROYECTO_NOMBRE() As String
 		Get
 			Return Me._PRODUCTO_PROYECTO_NOMBRE
@@ -929,7 +929,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA", DbType:="VarChar(MAX)")>  _
 	Public Property ACTIVIDAD_ACCION_OBRA() As String
 		Get
 			Return Me._ACTIVIDAD_ACCION_OBRA
@@ -945,7 +945,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ACTIVIDAD_ACCION_OBRA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property ACTIVIDAD_ACCION_OBRA_NOMBRE() As String
 		Get
 			Return Me._ACTIVIDAD_ACCION_OBRA_NOMBRE
@@ -977,7 +977,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FUNCION_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FUNCION_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property FUNCION_NOMBRE() As String
 		Get
 			Return Me._FUNCION_NOMBRE
@@ -1009,7 +1009,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DIVISION_FUNCIONAL_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DIVISION_FUNCIONAL_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property DIVISION_FUNCIONAL_NOMBRE() As String
 		Get
 			Return Me._DIVISION_FUNCIONAL_NOMBRE
@@ -1041,7 +1041,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GRUPO_FUNCIONAL_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GRUPO_FUNCIONAL_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property GRUPO_FUNCIONAL_NOMBRE() As String
 		Get
 			Return Me._GRUPO_FUNCIONAL_NOMBRE
@@ -1089,7 +1089,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_META_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_META_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property META_NOMBRE() As String
 		Get
 			Return Me._META_NOMBRE
@@ -1121,7 +1121,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DEPARTAMENTO_META_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DEPARTAMENTO_META_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property DEPARTAMENTO_META_NOMBRE() As String
 		Get
 			Return Me._DEPARTAMENTO_META_NOMBRE
@@ -1153,7 +1153,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FUENTE_FINANCIAMIENTO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FUENTE_FINANCIAMIENTO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property FUENTE_FINANCIAMIENTO_NOMBRE() As String
 		Get
 			Return Me._FUENTE_FINANCIAMIENTO_NOMBRE
@@ -1185,7 +1185,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RUBRO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RUBRO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property RUBRO_NOMBRE() As String
 		Get
 			Return Me._RUBRO_NOMBRE
@@ -1217,7 +1217,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TIPO_RECURSO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TIPO_RECURSO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property TIPO_RECURSO_NOMBRE() As String
 		Get
 			Return Me._TIPO_RECURSO_NOMBRE
@@ -1249,7 +1249,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CATEGORIA_GASTO_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CATEGORIA_GASTO_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property CATEGORIA_GASTO_NOMBRE() As String
 		Get
 			Return Me._CATEGORIA_GASTO_NOMBRE
@@ -1297,7 +1297,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GENERICA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GENERICA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property GENERICA_NOMBRE() As String
 		Get
 			Return Me._GENERICA_NOMBRE
@@ -1329,7 +1329,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUBGENERICA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUBGENERICA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property SUBGENERICA_NOMBRE() As String
 		Get
 			Return Me._SUBGENERICA_NOMBRE
@@ -1361,7 +1361,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUBGENERICA_DET_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUBGENERICA_DET_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property SUBGENERICA_DET_NOMBRE() As String
 		Get
 			Return Me._SUBGENERICA_DET_NOMBRE
@@ -1393,7 +1393,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ESPECIFICA_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ESPECIFICA_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property ESPECIFICA_NOMBRE() As String
 		Get
 			Return Me._ESPECIFICA_NOMBRE
@@ -1425,7 +1425,7 @@ Partial Public Class eco_tempo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ESPECIFICA_DET_NOMBRE", DbType:="VarChar(350)")>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ESPECIFICA_DET_NOMBRE", DbType:="VarChar(MAX)")>  _
 	Public Property ESPECIFICA_DET_NOMBRE() As String
 		Get
 			Return Me._ESPECIFICA_DET_NOMBRE

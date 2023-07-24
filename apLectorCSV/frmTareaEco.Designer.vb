@@ -91,6 +91,7 @@ Partial Class frmTareaEco
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbl_cant = New System.Windows.Forms.Label()
         Me.lbl_error_msg = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txt_ruta
@@ -611,7 +612,7 @@ Partial Class frmTareaEco
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(509, 38)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(163, 238)
+        Me.ListBox1.Size = New System.Drawing.Size(163, 212)
         Me.ListBox1.TabIndex = 45
         '
         'pgbar_avance
@@ -634,16 +635,16 @@ Partial Class frmTareaEco
         '
         'lbl_cant
         '
-        Me.lbl_cant.BackColor = System.Drawing.SystemColors.Control
+        Me.lbl_cant.BackColor = System.Drawing.Color.White
         Me.lbl_cant.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_cant.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_cant.ForeColor = System.Drawing.Color.Navy
-        Me.lbl_cant.Location = New System.Drawing.Point(591, 309)
+        Me.lbl_cant.Location = New System.Drawing.Point(582, 253)
         Me.lbl_cant.Name = "lbl_cant"
-        Me.lbl_cant.Size = New System.Drawing.Size(55, 17)
+        Me.lbl_cant.Size = New System.Drawing.Size(90, 17)
         Me.lbl_cant.TabIndex = 49
         Me.lbl_cant.Text = "0"
-        Me.lbl_cant.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lbl_cant.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lbl_error_msg
         '
@@ -654,14 +655,26 @@ Partial Class frmTareaEco
         Me.lbl_error_msg.Multiline = True
         Me.lbl_error_msg.Name = "lbl_error_msg"
         Me.lbl_error_msg.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.lbl_error_msg.Size = New System.Drawing.Size(588, 96)
+        Me.lbl_error_msg.Size = New System.Drawing.Size(607, 96)
         Me.lbl_error_msg.TabIndex = 50
+        '
+        'Label3
+        '
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Navy
+        Me.Label3.Location = New System.Drawing.Point(509, 253)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(67, 19)
+        Me.Label3.TabIndex = 51
+        Me.Label3.Text = "Registros :"
         '
         'frmTareaEco
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(703, 392)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lbl_error_msg)
         Me.Controls.Add(Me.lbl_cant)
         Me.Controls.Add(Me.Label2)
@@ -789,5 +802,6 @@ Partial Class frmTareaEco
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lbl_cant As System.Windows.Forms.Label
     Friend WithEvents lbl_error_msg As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 
 End Class
