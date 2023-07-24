@@ -114,14 +114,11 @@ Public Class frmTareaEco
             ' If i_completo = 1 Then
 
             b_cvs_procesado = True
-            MessageBox.Show("Termino la tarea", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ' Me.Close()
-            'cn.Close()
+            If s_cvs_error <> "" Then Exit Sub
             End
             Return
         End If
         pgbar_avance.Value = (i_completo * 100 / 20)
-
     End Sub
     Public Sub ifx_set_ErrorStop()
 
@@ -194,8 +191,7 @@ Public Class frmTareaEco
         ifx_do_loadCVS()
 
         ProgressBar1.Value = 0
-        'cn = New SqlConnection(My.Settings.GsECOConnectionString)
-        'cn.Open()
+       
 
         bkw_tarea.RunWorkerAsync()
         bkw_tarea02.RunWorkerAsync()
@@ -250,25 +246,9 @@ Public Class frmTareaEco
 
 
         'Los 
-        Dim ilist As List(Of eco_tempo_N1) = Nothing
-        Dim ilist2 As List(Of eco_tempo_N2) = Nothing
-        Dim ilist3 As List(Of eco_tempo_N3) = Nothing
-        Dim ilist4 As List(Of eco_tempo_N4) = Nothing
-        Dim ilist5 As List(Of eco_tempo_N5) = Nothing
+        Dim ilist As New List(Of eco_tempo)
 
         Dim dc As New dbDataDataContext
-        Select Case igrupo
-            Case 1, 6, 11, 16
-                ilist = New List(Of eco_tempo_N1)
-            Case 2, 7, 12, 17
-                ilist2 = New List(Of eco_tempo_N2)
-            Case 3, 8, 13, 18
-                ilist3 = New List(Of eco_tempo_N3)
-            Case 4, 9, 14, 19
-                ilist4 = New List(Of eco_tempo_N4)
-            Case 5, 10, 15, 20
-                ilist5 = New List(Of eco_tempo_N5)
-        End Select
 
 
         Dim i_row% = 1
@@ -282,9 +262,8 @@ Public Class frmTareaEco
                 Exit Sub
             End If
             Try
-                Select Case igrupo
-                    Case 1, 6, 11, 16
-                        Dim bo As New eco_tempo_N1
+               
+                Dim bo As New eco_tempo
                         '
                         '
                         bo.cvs_nombreEje = s_cvs_archivo_intranet
@@ -369,342 +348,8 @@ Public Class frmTareaEco
                         '
                         ilist.Add(bo)
                         bo = Nothing
-                    Case 2, 7, 12, 17
-                        Dim bo2 As New eco_tempo_N2
-              
-                        bo2.cvs_nombreEje = s_cvs_archivo_intranet
-                        bo2.imp_fecha = Now
-                        bo2.imp_nro = i
-                        bo2.imp_nrofor = i_row
-                        bo2.imp_nrogrupo = igrupo
-                        'ok
+                   
 
-                        bo2.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
-                        bo2.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
-                        bo2.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
-                        bo2.NIVEL_GOBIERNO_NOMBRE = s.str(filasDatos(3)) '4 NIVEL_GOBIERNO_NOMBRE (texto)
-                        bo2.SECTOR = s.int(filasDatos(4)) '5 SECTOR (char)
-                        bo2.SECTOR_NOMBRE = s.str(filasDatos(5)) '6 SECTOR_NOMBRE (texto)
-                        bo2.PLIEGO = s.int(filasDatos(6)) '7 PLIEGO (char)
-                        bo2.PLIEGO_NOMBRE = s.str(filasDatos(7)) '8 PLIEGO_NOMBRE (texto)
-                        bo2.SEC_EJEC = s.dob(filasDatos(8)) '9 SEC_EJEC (char)
-                        bo2.EJECUTORA = s.dob(filasDatos(9)) '10 EJECUTORA (char)
-                        bo2.EJECUTORA_NOMBRE = s.str(filasDatos(10)) '11 EJECUTORA_NOMBRE (texto)
-                        bo2.DEPARTAMENTO_EJECUTORA = s.int(filasDatos(11)) '12 DEPARTAMENTO_EJECUTORA (int)
-                        bo2.DEPARTAMENTO_EJECUTORA_NOMBRE = s.str(filasDatos(12)) '13 DEPARTAMENTO_EJECUTORA_NOMBRE (texto)
-                        bo2.PROVINCIA_EJECUTORA = s.int(filasDatos(13)) '14 PROVINCIA_EJECUTORA (int)
-                        bo2.PROVINCIA_EJECUTORA_NOMBRE = s.str(filasDatos(14)) '15 PROVINCIA_EJECUTORA_NOMBRE (texto)
-                        bo2.DISTRITO_EJECUTORA = s.int(filasDatos(15)) '16 DISTRITO_EJECUTORA (int)
-                        bo2.DISTRITO_EJECUTORA_NOMBRE = s.str(filasDatos(16)) '17 DISTRITO_EJECUTORA_NOMBRE (texto)
-                        bo2.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
-                        bo2.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
-                        bo2.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-
-
-
-                        bo2.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
-                        bo2.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
-                        bo2.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo2.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-
-                        bo2.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo2.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-
-
-                        bo2.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
-                        bo2.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
-                        bo2.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
-                        bo2.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo2.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
-                        bo2.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo2.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
-
-
-                        bo2.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
-                        bo2.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
-                        bo2.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
-                        bo2.DEPARTAMENTO_META_NOMBRE = s.str(filasDatos(36)) '37 DEPARTAMENTO_META_NOMBRE (texto)
-                        bo2.FUENTE_FINANCIAMIENTO = s.int(filasDatos(37)) '38 FUENTE_FINANCIAMIENTO (int)
-                        bo2.FUENTE_FINANCIAMIENTO_NOMBRE = s.str(filasDatos(38)) '39 FUENTE_FINANCIAMIENTO_NOMBRE (texto)
-                        bo2.RUBRO = s.int(filasDatos(39)) '40 RUBRO (int)
-                        bo2.RUBRO_NOMBRE = s.str(filasDatos(40)) '41 RUBRO_NOMBRE (texto)
-                        bo2.TIPO_RECURSO = s.int(filasDatos(41)) '42 TIPO_RECURSO (int)
-                        bo2.TIPO_RECURSO_NOMBRE = s.str(filasDatos(42)) '43 TIPO_RECURSO_NOMBRE (texto)
-                        bo2.CATEGORIA_GASTO = s.int(filasDatos(43)) '44 CATEGORIA_GASTO (int)
-                        bo2.CATEGORIA_GASTO_NOMBRE = s.str(filasDatos(44)) '45 CATEGORIA_GASTO_NOMBRE (texto)
-                        bo2.TIPO_TRANSACCION = s.int(filasDatos(45)) '46 TIPO_TRANSACCION (int)
-                        bo2.GENERICA = s.int(filasDatos(46)) '47 GENERICA (int)
-                        bo2.GENERICA_NOMBRE = s.str(filasDatos(47)) '48 GENERICA_NOMBRE (texto)
-                        bo2.SUBGENERICA = s.int(filasDatos(48)) '49 SUBGENERICA (int)
-                        bo2.SUBGENERICA_NOMBRE = s.str(filasDatos(49)) '50 SUBGENERICA_NOMBRE (texto)
-                        bo2.SUBGENERICA_DET = s.int(filasDatos(50)) '51 SUBGENERICA_DET (int)
-                        bo2.SUBGENERICA_DET_NOMBRE = s.str(filasDatos(51)) '52 SUBGENERICA_DET_NOMBRE (texto)
-                        bo2.ESPECIFICA = s.int(filasDatos(52)) '53 ESPECIFICA (int)
-                        bo2.ESPECIFICA_NOMBRE = s.str(filasDatos(53)) '54 ESPECIFICA_NOMBRE (texto)
-                        bo2.ESPECIFICA_DET = s.int(filasDatos(54)) '55 ESPECIFICA_DET (int)
-                        bo2.ESPECIFICA_DET_NOMBRE = s.str(filasDatos(55)) '56 ESPECIFICA_DET_NOMBRE (texto)
-                        bo2.MONTO_PIA = s.dob(filasDatos(56)) '57 MONTO_PIA (decimal)
-                        bo2.MONTO_PIM = s.dob(filasDatos(57)) '58 MONTO_PIM (decimal)
-                        bo2.MONTO_CERTIFICADO = s.dob(filasDatos(58)) '59 MONTO_CERTIFICADO (decimal)
-                        bo2.MONTO_COMPROMETIDO_ANUAL = s.dob(filasDatos(59)) '60 MONTO_COMPROMETIDO_ANUAL (decimal)
-                        bo2.MONTO_COMPROMETIDO = s.dob(filasDatos(60)) '61 MONTO_COMPROMETIDO (decimal)
-                        bo2.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
-                        bo2.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
-
-                        ilist2.Add(bo2)
-                        bo2 = Nothing
-                    Case 3, 8, 13, 18
-                        Dim bo3 As New eco_tempo_N3
-                        bo3.cvs_nombreEje = s_cvs_archivo_intranet
-                        bo3.imp_fecha = Now
-                        bo3.imp_nro = i
-                        bo3.imp_nrofor = i_row
-                        bo3.imp_nrogrupo = igrupo
-                        'ok
-
-                        bo3.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
-                        bo3.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
-                        bo3.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
-                        bo3.NIVEL_GOBIERNO_NOMBRE = s.str(filasDatos(3)) '4 NIVEL_GOBIERNO_NOMBRE (texto)
-                        bo3.SECTOR = s.int(filasDatos(4)) '5 SECTOR (char)
-                        bo3.SECTOR_NOMBRE = s.str(filasDatos(5)) '6 SECTOR_NOMBRE (texto)
-                        bo3.PLIEGO = s.int(filasDatos(6)) '7 PLIEGO (char)
-                        bo3.PLIEGO_NOMBRE = s.str(filasDatos(7)) '8 PLIEGO_NOMBRE (texto)
-                        bo3.SEC_EJEC = s.dob(filasDatos(8)) '9 SEC_EJEC (char)
-                        bo3.EJECUTORA = s.dob(filasDatos(9)) '10 EJECUTORA (char)
-                        bo3.EJECUTORA_NOMBRE = s.str(filasDatos(10)) '11 EJECUTORA_NOMBRE (texto)
-                        bo3.DEPARTAMENTO_EJECUTORA = s.int(filasDatos(11)) '12 DEPARTAMENTO_EJECUTORA (int)
-                        bo3.DEPARTAMENTO_EJECUTORA_NOMBRE = s.str(filasDatos(12)) '13 DEPARTAMENTO_EJECUTORA_NOMBRE (texto)
-                        bo3.PROVINCIA_EJECUTORA = s.int(filasDatos(13)) '14 PROVINCIA_EJECUTORA (int)
-                        bo3.PROVINCIA_EJECUTORA_NOMBRE = s.str(filasDatos(14)) '15 PROVINCIA_EJECUTORA_NOMBRE (texto)
-                        bo3.DISTRITO_EJECUTORA = s.int(filasDatos(15)) '16 DISTRITO_EJECUTORA (int)
-                        bo3.DISTRITO_EJECUTORA_NOMBRE = s.str(filasDatos(16)) '17 DISTRITO_EJECUTORA_NOMBRE (texto)
-                        bo3.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
-                        bo3.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
-                        bo3.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-
-
-
-                        bo3.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
-                        bo3.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
-                        bo3.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo3.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-
-                        bo3.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo3.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-
-
-                        bo3.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
-                        bo3.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
-                        bo3.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
-                        bo3.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo3.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
-                        bo3.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo3.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
-
-
-                        bo3.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
-                        bo3.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
-                        bo3.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
-                        bo3.DEPARTAMENTO_META_NOMBRE = s.str(filasDatos(36)) '37 DEPARTAMENTO_META_NOMBRE (texto)
-                        bo3.FUENTE_FINANCIAMIENTO = s.int(filasDatos(37)) '38 FUENTE_FINANCIAMIENTO (int)
-                        bo3.FUENTE_FINANCIAMIENTO_NOMBRE = s.str(filasDatos(38)) '39 FUENTE_FINANCIAMIENTO_NOMBRE (texto)
-                        bo3.RUBRO = s.int(filasDatos(39)) '40 RUBRO (int)
-                        bo3.RUBRO_NOMBRE = s.str(filasDatos(40)) '41 RUBRO_NOMBRE (texto)
-                        bo3.TIPO_RECURSO = s.int(filasDatos(41)) '42 TIPO_RECURSO (int)
-                        bo3.TIPO_RECURSO_NOMBRE = s.str(filasDatos(42)) '43 TIPO_RECURSO_NOMBRE (texto)
-                        bo3.CATEGORIA_GASTO = s.int(filasDatos(43)) '44 CATEGORIA_GASTO (int)
-                        bo3.CATEGORIA_GASTO_NOMBRE = s.str(filasDatos(44)) '45 CATEGORIA_GASTO_NOMBRE (texto)
-                        bo3.TIPO_TRANSACCION = s.int(filasDatos(45)) '46 TIPO_TRANSACCION (int)
-                        bo3.GENERICA = s.int(filasDatos(46)) '47 GENERICA (int)
-                        bo3.GENERICA_NOMBRE = s.str(filasDatos(47)) '48 GENERICA_NOMBRE (texto)
-                        bo3.SUBGENERICA = s.int(filasDatos(48)) '49 SUBGENERICA (int)
-                        bo3.SUBGENERICA_NOMBRE = s.str(filasDatos(49)) '50 SUBGENERICA_NOMBRE (texto)
-                        bo3.SUBGENERICA_DET = s.int(filasDatos(50)) '51 SUBGENERICA_DET (int)
-                        bo3.SUBGENERICA_DET_NOMBRE = s.str(filasDatos(51)) '52 SUBGENERICA_DET_NOMBRE (texto)
-                        bo3.ESPECIFICA = s.int(filasDatos(52)) '53 ESPECIFICA (int)
-                        bo3.ESPECIFICA_NOMBRE = s.str(filasDatos(53)) '54 ESPECIFICA_NOMBRE (texto)
-                        bo3.ESPECIFICA_DET = s.int(filasDatos(54)) '55 ESPECIFICA_DET (int)
-                        bo3.ESPECIFICA_DET_NOMBRE = s.str(filasDatos(55)) '56 ESPECIFICA_DET_NOMBRE (texto)
-                        bo3.MONTO_PIA = s.dob(filasDatos(56)) '57 MONTO_PIA (decimal)
-                        bo3.MONTO_PIM = s.dob(filasDatos(57)) '58 MONTO_PIM (decimal)
-                        bo3.MONTO_CERTIFICADO = s.dob(filasDatos(58)) '59 MONTO_CERTIFICADO (decimal)
-                        bo3.MONTO_COMPROMETIDO_ANUAL = s.dob(filasDatos(59)) '60 MONTO_COMPROMETIDO_ANUAL (decimal)
-                        bo3.MONTO_COMPROMETIDO = s.dob(filasDatos(60)) '61 MONTO_COMPROMETIDO (decimal)
-                        bo3.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
-                        bo3.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
-
-                        ilist3.Add(bo3)
-                        bo3 = Nothing
-                    Case 4, 9, 14, 19
-                        Dim bo4 As New eco_tempo_N4
-
-                        bo4.cvs_nombreEje = s_cvs_archivo_intranet
-                        bo4.imp_fecha = Now
-                        bo4.imp_nro = i
-                        bo4.imp_nrofor = i_row
-                        bo4.imp_nrogrupo = igrupo
-                        'ok
-
-                        bo4.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
-                        bo4.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
-                        bo4.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
-                        bo4.NIVEL_GOBIERNO_NOMBRE = s.str(filasDatos(3)) '4 NIVEL_GOBIERNO_NOMBRE (texto)
-                        bo4.SECTOR = s.int(filasDatos(4)) '5 SECTOR (char)
-                        bo4.SECTOR_NOMBRE = s.str(filasDatos(5)) '6 SECTOR_NOMBRE (texto)
-                        bo4.PLIEGO = s.int(filasDatos(6)) '7 PLIEGO (char)
-                        bo4.PLIEGO_NOMBRE = s.str(filasDatos(7)) '8 PLIEGO_NOMBRE (texto)
-                        bo4.SEC_EJEC = s.dob(filasDatos(8)) '9 SEC_EJEC (char)
-                        bo4.EJECUTORA = s.dob(filasDatos(9)) '10 EJECUTORA (char)
-                        bo4.EJECUTORA_NOMBRE = s.str(filasDatos(10)) '11 EJECUTORA_NOMBRE (texto)
-                        bo4.DEPARTAMENTO_EJECUTORA = s.int(filasDatos(11)) '12 DEPARTAMENTO_EJECUTORA (int)
-                        bo4.DEPARTAMENTO_EJECUTORA_NOMBRE = s.str(filasDatos(12)) '13 DEPARTAMENTO_EJECUTORA_NOMBRE (texto)
-                        bo4.PROVINCIA_EJECUTORA = s.int(filasDatos(13)) '14 PROVINCIA_EJECUTORA (int)
-                        bo4.PROVINCIA_EJECUTORA_NOMBRE = s.str(filasDatos(14)) '15 PROVINCIA_EJECUTORA_NOMBRE (texto)
-                        bo4.DISTRITO_EJECUTORA = s.int(filasDatos(15)) '16 DISTRITO_EJECUTORA (int)
-                        bo4.DISTRITO_EJECUTORA_NOMBRE = s.str(filasDatos(16)) '17 DISTRITO_EJECUTORA_NOMBRE (texto)
-                        bo4.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
-                        bo4.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
-                        bo4.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-
-
-
-                        bo4.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
-                        bo4.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
-                        bo4.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo4.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-
-                        bo4.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo4.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-
-
-                        bo4.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
-                        bo4.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
-                        bo4.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
-                        bo4.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo4.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
-                        bo4.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo4.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
-
-
-                        bo4.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
-                        bo4.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
-                        bo4.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
-                        bo4.DEPARTAMENTO_META_NOMBRE = s.str(filasDatos(36)) '37 DEPARTAMENTO_META_NOMBRE (texto)
-                        bo4.FUENTE_FINANCIAMIENTO = s.int(filasDatos(37)) '38 FUENTE_FINANCIAMIENTO (int)
-                        bo4.FUENTE_FINANCIAMIENTO_NOMBRE = s.str(filasDatos(38)) '39 FUENTE_FINANCIAMIENTO_NOMBRE (texto)
-                        bo4.RUBRO = s.int(filasDatos(39)) '40 RUBRO (int)
-                        bo4.RUBRO_NOMBRE = s.str(filasDatos(40)) '41 RUBRO_NOMBRE (texto)
-                        bo4.TIPO_RECURSO = s.int(filasDatos(41)) '42 TIPO_RECURSO (int)
-                        bo4.TIPO_RECURSO_NOMBRE = s.str(filasDatos(42)) '43 TIPO_RECURSO_NOMBRE (texto)
-                        bo4.CATEGORIA_GASTO = s.int(filasDatos(43)) '44 CATEGORIA_GASTO (int)
-                        bo4.CATEGORIA_GASTO_NOMBRE = s.str(filasDatos(44)) '45 CATEGORIA_GASTO_NOMBRE (texto)
-                        bo4.TIPO_TRANSACCION = s.int(filasDatos(45)) '46 TIPO_TRANSACCION (int)
-                        bo4.GENERICA = s.int(filasDatos(46)) '47 GENERICA (int)
-                        bo4.GENERICA_NOMBRE = s.str(filasDatos(47)) '48 GENERICA_NOMBRE (texto)
-                        bo4.SUBGENERICA = s.int(filasDatos(48)) '49 SUBGENERICA (int)
-                        bo4.SUBGENERICA_NOMBRE = s.str(filasDatos(49)) '50 SUBGENERICA_NOMBRE (texto)
-                        bo4.SUBGENERICA_DET = s.int(filasDatos(50)) '51 SUBGENERICA_DET (int)
-                        bo4.SUBGENERICA_DET_NOMBRE = s.str(filasDatos(51)) '52 SUBGENERICA_DET_NOMBRE (texto)
-                        bo4.ESPECIFICA = s.int(filasDatos(52)) '53 ESPECIFICA (int)
-                        bo4.ESPECIFICA_NOMBRE = s.str(filasDatos(53)) '54 ESPECIFICA_NOMBRE (texto)
-                        bo4.ESPECIFICA_DET = s.int(filasDatos(54)) '55 ESPECIFICA_DET (int)
-                        bo4.ESPECIFICA_DET_NOMBRE = s.str(filasDatos(55)) '56 ESPECIFICA_DET_NOMBRE (texto)
-                        bo4.MONTO_PIA = s.dob(filasDatos(56)) '57 MONTO_PIA (decimal)
-                        bo4.MONTO_PIM = s.dob(filasDatos(57)) '58 MONTO_PIM (decimal)
-                        bo4.MONTO_CERTIFICADO = s.dob(filasDatos(58)) '59 MONTO_CERTIFICADO (decimal)
-                        bo4.MONTO_COMPROMETIDO_ANUAL = s.dob(filasDatos(59)) '60 MONTO_COMPROMETIDO_ANUAL (decimal)
-                        bo4.MONTO_COMPROMETIDO = s.dob(filasDatos(60)) '61 MONTO_COMPROMETIDO (decimal)
-                        bo4.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
-                        bo4.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
-
-                        ilist4.Add(bo4)
-                        bo4 = Nothing
-                    Case 5, 10, 15, 20
-                        Dim bo5 As New eco_tempo_N5
-
-                        bo5.cvs_nombreEje = s_cvs_archivo_intranet
-                        bo5.imp_fecha = Now
-                        bo5.imp_nro = i
-                        bo5.imp_nrofor = i_row
-                        bo5.imp_nrogrupo = igrupo
-                        'ok
-
-                        bo5.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
-                        bo5.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
-                        bo5.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
-                        bo5.NIVEL_GOBIERNO_NOMBRE = s.str(filasDatos(3)) '4 NIVEL_GOBIERNO_NOMBRE (texto)
-                        bo5.SECTOR = s.int(filasDatos(4)) '5 SECTOR (char)
-                        bo5.SECTOR_NOMBRE = s.str(filasDatos(5)) '6 SECTOR_NOMBRE (texto)
-                        bo5.PLIEGO = s.int(filasDatos(6)) '7 PLIEGO (char)
-                        bo5.PLIEGO_NOMBRE = s.str(filasDatos(7)) '8 PLIEGO_NOMBRE (texto)
-                        bo5.SEC_EJEC = s.dob(filasDatos(8)) '9 SEC_EJEC (char)
-                        bo5.EJECUTORA = s.dob(filasDatos(9)) '10 EJECUTORA (char)
-                        bo5.EJECUTORA_NOMBRE = s.str(filasDatos(10)) '11 EJECUTORA_NOMBRE (texto)
-                        bo5.DEPARTAMENTO_EJECUTORA = s.int(filasDatos(11)) '12 DEPARTAMENTO_EJECUTORA (int)
-                        bo5.DEPARTAMENTO_EJECUTORA_NOMBRE = s.str(filasDatos(12)) '13 DEPARTAMENTO_EJECUTORA_NOMBRE (texto)
-                        bo5.PROVINCIA_EJECUTORA = s.int(filasDatos(13)) '14 PROVINCIA_EJECUTORA (int)
-                        bo5.PROVINCIA_EJECUTORA_NOMBRE = s.str(filasDatos(14)) '15 PROVINCIA_EJECUTORA_NOMBRE (texto)
-                        bo5.DISTRITO_EJECUTORA = s.int(filasDatos(15)) '16 DISTRITO_EJECUTORA (int)
-                        bo5.DISTRITO_EJECUTORA_NOMBRE = s.str(filasDatos(16)) '17 DISTRITO_EJECUTORA_NOMBRE (texto)
-                        bo5.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
-                        bo5.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
-                        bo5.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
-
-
-
-                        bo5.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
-                        bo5.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
-                        bo5.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
-                        bo5.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
-
-                        bo5.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
-                        bo5.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
-
-
-                        bo5.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
-                        bo5.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
-                        bo5.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
-                        bo5.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
-                        bo5.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
-                        bo5.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
-                        bo5.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
-
-
-                        bo5.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
-                        bo5.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
-                        bo5.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
-                        bo5.DEPARTAMENTO_META_NOMBRE = s.str(filasDatos(36)) '37 DEPARTAMENTO_META_NOMBRE (texto)
-                        bo5.FUENTE_FINANCIAMIENTO = s.int(filasDatos(37)) '38 FUENTE_FINANCIAMIENTO (int)
-                        bo5.FUENTE_FINANCIAMIENTO_NOMBRE = s.str(filasDatos(38)) '39 FUENTE_FINANCIAMIENTO_NOMBRE (texto)
-                        bo5.RUBRO = s.int(filasDatos(39)) '40 RUBRO (int)
-                        bo5.RUBRO_NOMBRE = s.str(filasDatos(40)) '41 RUBRO_NOMBRE (texto)
-                        bo5.TIPO_RECURSO = s.int(filasDatos(41)) '42 TIPO_RECURSO (int)
-                        bo5.TIPO_RECURSO_NOMBRE = s.str(filasDatos(42)) '43 TIPO_RECURSO_NOMBRE (texto)
-                        bo5.CATEGORIA_GASTO = s.int(filasDatos(43)) '44 CATEGORIA_GASTO (int)
-                        bo5.CATEGORIA_GASTO_NOMBRE = s.str(filasDatos(44)) '45 CATEGORIA_GASTO_NOMBRE (texto)
-                        bo5.TIPO_TRANSACCION = s.int(filasDatos(45)) '46 TIPO_TRANSACCION (int)
-                        bo5.GENERICA = s.int(filasDatos(46)) '47 GENERICA (int)
-                        bo5.GENERICA_NOMBRE = s.str(filasDatos(47)) '48 GENERICA_NOMBRE (texto)
-                        bo5.SUBGENERICA = s.int(filasDatos(48)) '49 SUBGENERICA (int)
-                        bo5.SUBGENERICA_NOMBRE = s.str(filasDatos(49)) '50 SUBGENERICA_NOMBRE (texto)
-                        bo5.SUBGENERICA_DET = s.int(filasDatos(50)) '51 SUBGENERICA_DET (int)
-                        bo5.SUBGENERICA_DET_NOMBRE = s.str(filasDatos(51)) '52 SUBGENERICA_DET_NOMBRE (texto)
-                        bo5.ESPECIFICA = s.int(filasDatos(52)) '53 ESPECIFICA (int)
-                        bo5.ESPECIFICA_NOMBRE = s.str(filasDatos(53)) '54 ESPECIFICA_NOMBRE (texto)
-                        bo5.ESPECIFICA_DET = s.int(filasDatos(54)) '55 ESPECIFICA_DET (int)
-                        bo5.ESPECIFICA_DET_NOMBRE = s.str(filasDatos(55)) '56 ESPECIFICA_DET_NOMBRE (texto)
-                        bo5.MONTO_PIA = s.dob(filasDatos(56)) '57 MONTO_PIA (decimal)
-                        bo5.MONTO_PIM = s.dob(filasDatos(57)) '58 MONTO_PIM (decimal)
-                        bo5.MONTO_CERTIFICADO = s.dob(filasDatos(58)) '59 MONTO_CERTIFICADO (decimal)
-                        bo5.MONTO_COMPROMETIDO_ANUAL = s.dob(filasDatos(59)) '60 MONTO_COMPROMETIDO_ANUAL (decimal)
-                        bo5.MONTO_COMPROMETIDO = s.dob(filasDatos(60)) '61 MONTO_COMPROMETIDO (decimal)
-                        bo5.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
-                        bo5.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
-
-                        ilist5.Add(bo5)
-                        bo5 = Nothing
-                End Select
             Catch ex As Exception
                 s_cvs_error = "Error asiagnacion:" + ex.Message + "Linea:[" + i_col_error.ToString + "]" + listCVS(i)
             End Try
@@ -716,40 +361,12 @@ Public Class frmTareaEco
             ' If ilist.Count = 10 Or ilist2.Count = 10 Then
             Try
                 If s_cvs_error = "" Then
-                    Select Case igrupo
-                        Case 1, 6, 11, 16
-                            If ilist.Count = gs_packEnvioInsert Then
-                                dc.eco_tempo_N1.InsertAllOnSubmit(ilist)
-                                dc.SubmitChanges()
-                                ilist = New List(Of eco_tempo_N1)
-                            End If
-                        Case 2, 7, 12, 17
-                            If ilist2.Count = gs_packEnvioInsert Then
-                                dc.eco_tempo_N2.InsertAllOnSubmit(ilist2)
-                                dc.SubmitChanges()
-                                ilist2 = New List(Of eco_tempo_N2)
-                            End If
-                        Case 3, 8, 13, 18
-                            If ilist3.Count = gs_packEnvioInsert Then
-                                dc.eco_tempo_N3.InsertAllOnSubmit(ilist3)
-                                dc.SubmitChanges()
-                                ilist3 = New List(Of eco_tempo_N3)
-                            End If
-                        Case 4, 9, 14, 19
-                            If ilist4.Count = gs_packEnvioInsert Then
-                                dc.eco_tempo_N4.InsertAllOnSubmit(ilist4)
-                                dc.SubmitChanges()
-                                ilist4 = New List(Of eco_tempo_N4)
-                            End If
-                        Case 5, 10, 15, 20
-                            If ilist5.Count = gs_packEnvioInsert Then
-                                dc.eco_tempo_N5.InsertAllOnSubmit(ilist5)
-                                dc.SubmitChanges()
-                                ilist5 = New List(Of eco_tempo_N5)
-                            End If
-
-
-                    End Select
+                    
+                    If ilist.Count = gs_packEnvioInsert Then
+                        dc.eco_tempo.InsertAllOnSubmit(ilist)
+                        dc.SubmitChanges()
+                        ilist = New List(Of eco_tempo)
+                    End If
                 End If
             Catch ex As Exception
                 s_cvs_error = "Error grabar linea:" + ex.Message + "Linea:[" + i_col_error.ToString + "]" + listCVS(i)
@@ -799,48 +416,13 @@ Public Class frmTareaEco
         Next
         Try
 
-            Select Case igrupo
-                Case 1, 6, 11, 16
-                    If ilist.Count > 0 Then
-                        dc.eco_tempo_N1.InsertAllOnSubmit(ilist)
-                        dc.SubmitChanges()
+             
+            If ilist.Count > 0 Then
+                dc.eco_tempo.InsertAllOnSubmit(ilist)
+                dc.SubmitChanges()
 
-                    End If
-                Case 2, 7, 12, 17
-                    If ilist2.Count > 0 Then
-                        dc.eco_tempo_N2.InsertAllOnSubmit(ilist2)
-                        dc.SubmitChanges()
-
-                    End If
-                Case 3, 8, 13, 18
-                    If ilist3.Count > 0 Then
-                        dc.eco_tempo_N3.InsertAllOnSubmit(ilist3)
-                        dc.SubmitChanges()
-
-                    End If
-                Case 4, 9, 14, 19
-                    If ilist4.Count > 0 Then
-                        dc.eco_tempo_N4.InsertAllOnSubmit(ilist4)
-                        dc.SubmitChanges()
-
-                    End If
-                Case 5, 10, 15, 20
-                    If ilist5.Count > 0 Then
-                        dc.eco_tempo_N5.InsertAllOnSubmit(ilist5)
-                        dc.SubmitChanges()
-
-                    End If
-
-
-            End Select
-            ilist = Nothing
-            ilist2 = Nothing
-            ilist3 = Nothing
-            ilist4 = Nothing
-            ilist5 = Nothing
-
-
-
+            End If                
+            ilist = Nothing           
         Catch ex As Exception
             s_cvs_error = "Error grabar Utm:" + ex.Message
         End Try
@@ -884,179 +466,7 @@ Public Class frmTareaEco
         listCVS = File.ReadAllLines(ficheroCSV, Encoding.Default)
         lbl_cant.Text = listCVS.Length - 1
     End Sub
-    'Private Sub ifx_do_lector()
-
-
-    '    Dim ficheroCSV As String = txt_ruta.Text
-    '    Dim separador As Char = Convert.ToChar(";")
-    '    Dim separadorCampos As String = Chr(34)
-
-
-
-
-    '    tablaDatos = New DataTable()
-    '    Dim lineas = File.ReadAllLines(ficheroCSV, Encoding.Default)
-
-
-
-
-    '    'Titulos
-    '    Dim ci As Integer = 0
-    '    Dim lista As List(Of String) = New List(Of String)()
-    '    'Dim etiquetaTitulosFinal As String()
-
-    '    '
-    '    '
-    '    'For Each campoActual In lineas(0).Split(";")
-    '    '    i_nromax = i_nromax + 1
-    '    '    bkw_tarea.ReportProgress((i_nromax * 100 / 300)) '5 min
-    '    '    ci = ci + 1
-    '    '    Dim valor = campoActual
-    '    '    If separadorCampos IsNot "" Then
-    '    '        valor = valor.TrimEnd(Convert.ToChar(separadorCampos))
-    '    '        valor = valor.TrimStart(Convert.ToChar(separadorCampos))
-    '    '    End If
-    '    '    tablaDatos.Columns.Add(New DataColumn(valor))
-    '    '    lista.Add(valor)
-    '    'Next
-    '    'etiquetaTitulosFinal = lista.ToArray()
-
-    '    Dim bo As New eco_tempo
-    '    'Dim ilist As New List(Of eco_tempo)
-    '    Dim dc As New dbDataDataContext
-
-    '    For i = 1 To lineas.Length - 1
-    '        Dim filasDatos = lineas(i).Split(separador)
-    '        ' Dim dataGridS As DataRow = tablaDatos.NewRow()
-    '        Dim columnIndex = 0
-
-
-    '        bo = New eco_tempo
-    '        bkw_tarea.ReportProgress((i * 100 / lineas.Length)) '5 min
-
-    '        bo = New eco_tempo
-    '        bo.MES_EJE = i
-
-    '        dc.eco_tempo.InsertOnSubmit(bo)
-    '        dc.SubmitChanges()
-    '        bo = Nothing
-
-    '        'For Each campoActual In etiquetaTitulosFinal
-
-    '        '    Dim valor = filasDatos(columnIndex)
-    '        '    ' Quitamos el posible carácter de inicio y fin de valor
-    '        '    If separadorCampos <> "" Then
-    '        '        valor = valor.TrimEnd(Convert.ToChar(separadorCampos))
-    '        '        valor = valor.TrimStart(Convert.ToChar(separadorCampos))
-    '        '    End If
-    '        '    columnIndex = columnIndex + 1
-    '        '    bo = New eco_tempo
-    '        '    bo.grupo = i
-    '        '    dc.eco_tempo.InsertOnSubmit(bo)
-    '        '    dc.SubmitChanges()
-    '        '    bo = Nothing
-    '        '    '               [grupo] [float] NULL,
-    '        '    '[FECHA] [datetime] NULL,
-    '        '    '[ANO_EJE] [float] NULL,
-    '        '    '[TIPO_GOBIERNO] [nvarchar](255) NULL,
-    '        '    '[TIPO_GOBIERNO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[SECTOR] [float] NULL,
-    '        '    '[SECTOR_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[PLIEGO] [float] NULL,
-    '        '    '[PLIEGO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[SEC_EJEC] [float] NULL,
-    '        '    '[EJECUTORA] [float] NULL,
-    '        '    '[EJECUTORA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[DEPARTAMENTO_EJECUTORA] [float] NULL,
-    '        '    '[DEPARTAMENTO_EJECUTORA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[PROVINCIA_EJECUTORA] [float] NULL,
-    '        '    '[PROVINCIA_EJECUTORA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[DISTRITO_EJECUTORA] [float] NULL,
-    '        '    '[DISTRITO_EJECUTORA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[SEC_FUNC] [float] NULL,
-    '        '    '[PROGRAMA_PPTO] [float] NULL,
-    '        '    '[PROGRAMA_PPTO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[TIPO_ACT_PROY] [float] NULL,
-    '        '    '[TIPO_ACT_PROY_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[PRODUCTO_PROYECTO] [float] NULL,
-    '        '    '[PRODUCTO_PROYECTO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[ACTIVIDAD_ACCION_OBRA] [float] NULL,
-    '        '    '[ACTIVIDAD_ACCION_OBRA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[FUNCION] [float] NULL,
-    '        '    '[FUNCION_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[DIVISION_FUNCIONAL] [float] NULL,
-    '        '    '[DIVISION_FUNCIONAL_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[GRUPO_FUNCIONAL] [float] NULL,
-    '        '    '[GRUPO_FUNCIONAL_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[META] [float] NULL,
-    '        '    '[FINALIDAD] [float] NULL,
-    '        '    '[META_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[DEPARTAMENTO_META] [float] NULL,
-    '        '    '[DEPARTAMENTO_META_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[FUENTE_FINANC] [float] NULL,
-    '        '    '[FUENTE_FINANCIAMIENTO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[RUBRO] [float] NULL,
-    '        '    '[RUBRO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[TIPO_RECURSO] [float] NULL,
-    '        '    '[TIPO_RECURSO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[CATEG_GASTO] [float] NULL,
-    '        '    '[CATEGORIA_GASTO_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[TIPO_TRANSACCION] [float] NULL,
-    '        '    '[GENERICA] [float] NULL,
-    '        '    '[GENERICA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[SUBGENERICA] [float] NULL,
-    '        '    '[SUBGENERICA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[SUBGENERICA_DET] [float] NULL,
-    '        '    '[SUBGENERICA_DET_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[ESPECIFICA] [float] NULL,
-    '        '    '[ESPECIFICA_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[ESPECIFICA_DET] [float] NULL,
-    '        '    '[ESPECIFICA_DET_NOMBRE] [nvarchar](255) NULL,
-    '        '    '[MONTO_PIA] [float] NULL,
-    '        '    '[MONTO_PIM] [float] NULL,
-    '        '    '[MONTO_CERTIFICADO] [float] NULL,
-    '        '    '[MONTO_COMPROMETIDO_ANUAL] [float] NULL,
-    '        '    '[MONTO_COMPROMETIDO] [float] NULL,
-    '        '    '[MONTO_DEVENGADO(0)] [float] NULL,
-    '        '    '[MONTO_DEVENGADO(ENE)] [nvarchar](255) NULL,
-    '        '    '[MONTO_DEVENGADO(FEB)] [nvarchar](255) NULL,
-    '        '    '[MONTO_DEVENGADO(MAR)] [float] NULL,
-    '        '    '[MONTO_DEVENGADO(ABR)] [nvarchar](255) NULL,
-    '        '    '[MONTO_DEVENGADO(MAY)] [nvarchar](255) NULL,
-    '        '    '[MONTO_GIRADO] [float] NULL
-
-    '        '    'dataGridS(campoActual) = valor
-    '        'Next
-    '        '            tablaDatos.Rows.Add(dataGridS)
-    '        '  ilist.Add(bo)
-    '    Next
-
-    '    dc = Nothing
-
-
-
-    '    'for (int i = inicioFila; i < lineas.Length; i++)
-    '    '       {
-    '    '           string[] filasDatos = lineas[i].Split(separador);
-    '    '           DataRow dataGridS = tablaDatos.NewRow();
-    '    '           int columnIndex = 0;
-    '    '           foreach (string campoActual in etiquetaTitulosFinal)
-    '    '           {
-    '    '               string valor = filasDatos[columnIndex++];
-    '    '               // Quitamos el posible carácter de inicio y fin de valor
-    '    '               if (separadorCampos != "")
-    '    '               {
-    '    '                   valor = valor.TrimEnd(Convert.ToChar(separadorCampos));
-    '    '                   valor = valor.TrimStart(Convert.ToChar(separadorCampos));
-    '    '               }
-    '    '               dataGridS[campoActual] = valor;
-    '    '           }
-    '    '           tablaDatos.Rows.Add(dataGridS);
-    '    '       }
-
-
-
-    'End Sub
+ 
 
     Private Sub bkw_tarea_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles bkw_tarea.DoWork
         '        ifx_do_procesar(1)
@@ -1396,7 +806,7 @@ Public Class frmTareaEco
 
 
     End Sub
-    Public Function _ejeSQL(ByVal igrupo As Integer, ByVal bo As eco_tempo_N1) As String
+    Public Function _ejeSQL(ByVal igrupo As Integer, ByVal bo As eco_tempo) As String
 
         Dim s_error As String = ""
         ''Dim cn As New SqlConnection(My.Settings.GsECOConnectionString)
@@ -1436,34 +846,5 @@ Public Class frmTareaEco
     End Function
 
 
-    'public static _error _ejeSQL(string ssSQL)
-    '   {
-
-    '       _error erro = new _error();
-
-
-    '       try
-    '       {
-
-    '           SqlConnection cn = new SqlConnection(dao_telehis.Properties.Settings.Default.GSHISConnectionString + vars._var.gs_passwBASE);
-    '           cn.Open();           
-    '           SqlCommand cmd = new SqlCommand();
-    '           cmd.CommandType = CommandType.Text;
-    '           cmd.CommandText = ssSQL;
-    '           cmd.Connection = cn;
-    '           cmd.ExecuteNonQuery();
-    '           cn.Close();
-    '           //
-    '           //
-    '       }
-    '       catch (Exception ex)
-    '       {
-    '           erro.errorNumero = 99;
-    '           erro.errorMensaje = ex.Message.ToString();
-    '           return erro;
-    '       }
-
-    '       return erro;
-    '   }
-
+    
 End Class

@@ -90,7 +90,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1000")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("500")>  _
         Public Property PaqueteEnvio() As String
             Get
                 Return CType(Me("PaqueteEnvio"),String)

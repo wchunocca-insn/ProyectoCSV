@@ -1,35 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.375, 15" name="dbData">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 15.75" name="dbData">
   <DataContextMoniker Name="/dbDataDataContext" />
   <nestedChildShapes>
-    <classShape Id="7463319b-e6a9-49f9-abf8-96d252fb8747" absoluteBounds="0.5, 0.5, 2, 14.0781884765625">
-      <DataClassMoniker Name="/dbDataDataContext/eco_tempo_N1" />
+    <classShape Id="f99842f7-56bf-4958-b16d-f08f4d9ae256" absoluteBounds="4.75, 1.375, 2, 14.0781884765625">
+      <DataClassMoniker Name="/dbDataDataContext/eco_tempo" />
       <nestedChildShapes>
-        <elementListCompartment Id="5ae44d16-3535-4fa8-9c28-c975e6749e48" absoluteBounds="0.515, 0.96, 1.9700000000000002, 13.5181884765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="6ead1f8c-0989-4e28-9ec9-953b6764e7e3" absoluteBounds="2.625, 0.5, 2, 14.0781884765625">
-      <DataClassMoniker Name="/dbDataDataContext/eco_tempo_N2" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5e90c6ab-71a4-4d49-bc40-d5a80220ff58" absoluteBounds="2.64, 0.96, 1.9700000000000002, 13.5181884765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="91db444b-7a83-4a6e-964a-2f6eaae4327d" absoluteBounds="4.75, 0.625, 2, 14.0781884765625">
-      <DataClassMoniker Name="/dbDataDataContext/eco_tempo_N3" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8145c6c1-fe4a-4f9a-b9c9-bad7b2071129" absoluteBounds="4.765, 1.085, 1.9700000000000002, 13.5181884765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="f65a7aaf-8719-4151-8930-86790a550937" absoluteBounds="7, 0.625, 2, 14.0781884765625">
-      <DataClassMoniker Name="/dbDataDataContext/eco_tempo_N4" />
-      <nestedChildShapes>
-        <elementListCompartment Id="638db87e-b396-4ef3-b67a-0dd49f3f639b" absoluteBounds="7.0150000000000006, 1.085, 1.9700000000000002, 13.5181884765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="fff58296-450b-4965-9191-51802e2174ef" absoluteBounds="9.125, 0.625, 2, 14.0781884765625">
-      <DataClassMoniker Name="/dbDataDataContext/eco_tempo_N5" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b84acf12-6aaf-4f5c-b0fe-fd67cb43606b" absoluteBounds="9.14, 1.085, 1.9700000000000002, 13.5181884765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="07a71c6c-f4d5-4732-968c-14b72cc52ba6" absoluteBounds="4.765, 1.835, 1.9700000000000002, 13.5181884765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
