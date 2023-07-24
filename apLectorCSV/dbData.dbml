@@ -6,60 +6,60 @@
       <Column Name="cvs_nombreEje" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="ANO_EJE" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="MES_EJE" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="NIVEL_GOBIERNO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="NIVEL_GOBIERNO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NIVEL_GOBIERNO" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="NIVEL_GOBIERNO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="SECTOR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SECTOR_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SECTOR_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="PLIEGO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PLIEGO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PLIEGO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="SEC_EJEC" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="EJECUTORA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="EJECUTORA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EJECUTORA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="DEPARTAMENTO_EJECUTORA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DEPARTAMENTO_EJECUTORA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DEPARTAMENTO_EJECUTORA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="PROVINCIA_EJECUTORA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PROVINCIA_EJECUTORA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PROVINCIA_EJECUTORA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="DISTRITO_EJECUTORA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DISTRITO_EJECUTORA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DISTRITO_EJECUTORA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="SEC_FUNC" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="PROGRAMA_PPTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PROGRAMA_PPTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PROGRAMA_PPTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="TIPO_ACT_PROY" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TIPO_ACT_PROY_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PRODUCTO_PROYECTO" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TIPO_ACT_PROY_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="PRODUCTO_PROYECTO" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="PRODUCTO_PROYECTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
-      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="ACTIVIDAD_ACCION_OBRA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ACTIVIDAD_ACCION_OBRA" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="ACTIVIDAD_ACCION_OBRA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="FUNCION" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FUNCION_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FUNCION_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="DIVISION_FUNCIONAL" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DIVISION_FUNCIONAL_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DIVISION_FUNCIONAL_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="GRUPO_FUNCIONAL" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="GRUPO_FUNCIONAL_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GRUPO_FUNCIONAL_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="META" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="FINALIDAD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="META_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="META_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="DEPARTAMENTO_META" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DEPARTAMENTO_META_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DEPARTAMENTO_META_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="FUENTE_FINANCIAMIENTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FUENTE_FINANCIAMIENTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FUENTE_FINANCIAMIENTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="RUBRO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="RUBRO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RUBRO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="TIPO_RECURSO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TIPO_RECURSO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TIPO_RECURSO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="CATEGORIA_GASTO" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CATEGORIA_GASTO_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CATEGORIA_GASTO_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="TIPO_TRANSACCION" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="GENERICA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="GENERICA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GENERICA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="SUBGENERICA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SUBGENERICA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SUBGENERICA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="SUBGENERICA_DET" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SUBGENERICA_DET_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SUBGENERICA_DET_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="ESPECIFICA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ESPECIFICA_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ESPECIFICA_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="ESPECIFICA_DET" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ESPECIFICA_DET_NOMBRE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ESPECIFICA_DET_NOMBRE" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="MONTO_PIA" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="MONTO_PIM" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="MONTO_CERTIFICADO" Type="System.Double" DbType="Float" CanBeNull="true" />
