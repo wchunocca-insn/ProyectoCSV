@@ -110,14 +110,14 @@ Public Class frmTareaEco
 
     End Sub
     Private Sub ifx_do_updateAvanceTarea()
-        If i_completo = 20 Then '20
+        If i_completo = 3 Then '20
             ' If i_completo = 1 Then
             b_cvs_procesado = True
             If s_cvs_error <> "" Then Exit Sub
             End
             Return
         End If
-        pgbar_avance.Value = (i_completo * 100 / 20)
+        pgbar_avance.Value = (i_completo * 100 / 3)
         '        pgbar_avance.Value = (i_completo * 100 / 20)
 
     End Sub
@@ -129,23 +129,23 @@ Public Class frmTareaEco
 
         bkw_tarea02.CancelAsync()
         bkw_tarea03.CancelAsync()
-        bkw_tarea04.CancelAsync()
-        bkw_tarea05.CancelAsync()
-        bkw_tarea06.CancelAsync()
-        bkw_tarea07.CancelAsync()
-        bkw_tarea08.CancelAsync()
-        bkw_tarea09.CancelAsync()
-        bkw_tarea10.CancelAsync()
-        bkw_tarea11.CancelAsync()
-        bkw_tarea12.CancelAsync()
-        bkw_tarea13.CancelAsync()
-        bkw_tarea14.CancelAsync()
-        bkw_tarea15.CancelAsync()
-        bkw_tarea16.CancelAsync()
-        bkw_tarea17.CancelAsync()
-        bkw_tarea18.CancelAsync()
-        bkw_tarea19.CancelAsync()
-        bkw_tarea20.CancelAsync()
+        'bkw_tarea04.CancelAsync()
+        'bkw_tarea05.CancelAsync()
+        'bkw_tarea06.CancelAsync()
+        'bkw_tarea07.CancelAsync()
+        'bkw_tarea08.CancelAsync()
+        'bkw_tarea09.CancelAsync()
+        'bkw_tarea10.CancelAsync()
+        'bkw_tarea11.CancelAsync()
+        'bkw_tarea12.CancelAsync()
+        'bkw_tarea13.CancelAsync()
+        'bkw_tarea14.CancelAsync()
+        'bkw_tarea15.CancelAsync()
+        'bkw_tarea16.CancelAsync()
+        'bkw_tarea17.CancelAsync()
+        'bkw_tarea18.CancelAsync()
+        'bkw_tarea19.CancelAsync()
+        'bkw_tarea20.CancelAsync()
 
     End Sub
     Public Sub ifx_do_procesarCVS()
@@ -190,33 +190,32 @@ Public Class frmTareaEco
         i_completo = 0
         ListBox1.Items.Add("Inicio :" + Now.ToString)
         ifx_do_loadCVS()
-
+        '
         ProgressBar1.Value = 0
-       
-
+        '
         bkw_tarea.RunWorkerAsync()
         bkw_tarea02.RunWorkerAsync()
         bkw_tarea03.RunWorkerAsync()
-        bkw_tarea04.RunWorkerAsync()
-        bkw_tarea05.RunWorkerAsync()
+        'bkw_tarea04.RunWorkerAsync()
+        'bkw_tarea05.RunWorkerAsync()
 
 
-        bkw_tarea06.RunWorkerAsync()
-        bkw_tarea07.RunWorkerAsync()
-        bkw_tarea08.RunWorkerAsync()
-        bkw_tarea09.RunWorkerAsync()
-        bkw_tarea10.RunWorkerAsync()
+        'bkw_tarea06.RunWorkerAsync()
+        'bkw_tarea07.RunWorkerAsync()
+        'bkw_tarea08.RunWorkerAsync()
+        'bkw_tarea09.RunWorkerAsync()
+        'bkw_tarea10.RunWorkerAsync()
 
-        bkw_tarea11.RunWorkerAsync()
-        bkw_tarea12.RunWorkerAsync()
-        bkw_tarea13.RunWorkerAsync()
-        bkw_tarea14.RunWorkerAsync()
-        bkw_tarea15.RunWorkerAsync()
-        bkw_tarea16.RunWorkerAsync()
-        bkw_tarea17.RunWorkerAsync()
-        bkw_tarea18.RunWorkerAsync()
-        bkw_tarea19.RunWorkerAsync()
-        bkw_tarea20.RunWorkerAsync()
+        'bkw_tarea11.RunWorkerAsync()
+        'bkw_tarea12.RunWorkerAsync()
+        'bkw_tarea13.RunWorkerAsync()
+        'bkw_tarea14.RunWorkerAsync()
+        'bkw_tarea15.RunWorkerAsync()
+        'bkw_tarea16.RunWorkerAsync()
+        'bkw_tarea17.RunWorkerAsync()
+        'bkw_tarea18.RunWorkerAsync()
+        'bkw_tarea19.RunWorkerAsync()
+        'bkw_tarea20.RunWorkerAsync()
 
     End Sub
     'Lectura de filas y transferencia al SQL
@@ -224,7 +223,7 @@ Public Class frmTareaEco
 
         Dim i_inicio%, i_final%
         Dim itotal% = listCVS.Length - 1
-        Dim icant_grupo% = itotal / 20 'total por grupo
+        Dim icant_grupo% = itotal / 3 'total por grupo
 
 
         'Determinar el numero de orden de inicio y fin del Rango
@@ -232,9 +231,9 @@ Public Class frmTareaEco
             i_inicio = 1
             i_final = icant_grupo
             ' ElseIf (igrupo = 20) Then ' grupo Final
-        ElseIf (igrupo = 20) Then ' grupo Final
+        ElseIf (igrupo = 3) Then ' grupo Final
             '            i_inicio = (icant_grupo * 19) + 1
-            i_inicio = (icant_grupo * 19) + 1
+            i_inicio = (icant_grupo * 2) + 1
             i_final = itotal
         Else
             '            i_inicio = icant_grupo * (igrupo - 1)
@@ -464,7 +463,233 @@ Public Class frmTareaEco
     End Sub
 
 
+    Private Sub ifx_do_procesar_one()
 
+        Dim igrupo% = 1
+        Dim itotal% = listCVS.Length - 1
+        Dim icant_grupo% = itotal / 20 'total por grupo
+        Dim i_inicio% = 1, i_final% = itotal
+
+
+        Dim separador As Char = Convert.ToChar(";")
+        Dim separadorCampos As String = Chr(34)
+        Dim i_total_filas% = (i_final - i_inicio) + 1
+        Dim i_porcent As Double = 0
+
+
+        'Los 
+        Dim ilist As New List(Of eco_tempo)
+
+        Dim dc As New dbDataDataContext
+
+
+        Dim i_row% = 1
+        Dim i_col_error = 0
+        For i = i_inicio To i_final
+            Dim filasDatos = listCVS(i).Split(separador)
+
+            i_porcent = (i_row * 100 / i_total_filas)
+
+            If b_stop_proceso = True Then
+                Exit Sub
+            End If
+            Try
+
+                Dim bo As New eco_tempo
+                '
+                '
+                bo.cvs_nombreEje = s_cvs_archivo_intranet
+                bo.imp_fecha = Now
+                bo.imp_nro = i
+                bo.imp_nrofor = i_row
+                bo.imp_nrogrupo = igrupo
+                'ok
+
+                bo.ANO_EJE = s.int(filasDatos(0)) '1 ANO_EJE (int)
+                bo.MES_EJE = s.int(filasDatos(1)) '2 MES_EJE (int)
+                bo.NIVEL_GOBIERNO = s.str(filasDatos(2)) '3 NIVEL_GOBIERNO (char)
+                bo.NIVEL_GOBIERNO_NOMBRE = s.str(filasDatos(3)) '4 NIVEL_GOBIERNO_NOMBRE (texto)
+                bo.SECTOR = s.int(filasDatos(4)) '5 SECTOR (char)
+                bo.SECTOR_NOMBRE = s.str(filasDatos(5)) '6 SECTOR_NOMBRE (texto)
+                bo.PLIEGO = s.int(filasDatos(6)) '7 PLIEGO (char)
+                bo.PLIEGO_NOMBRE = s.str(filasDatos(7)) '8 PLIEGO_NOMBRE (texto)
+                bo.SEC_EJEC = s.dob(filasDatos(8)) '9 SEC_EJEC (char)
+                bo.EJECUTORA = s.dob(filasDatos(9)) '10 EJECUTORA (char)
+                bo.EJECUTORA_NOMBRE = s.str(filasDatos(10)) '11 EJECUTORA_NOMBRE (texto)
+                bo.DEPARTAMENTO_EJECUTORA = s.int(filasDatos(11)) '12 DEPARTAMENTO_EJECUTORA (int)
+                bo.DEPARTAMENTO_EJECUTORA_NOMBRE = s.str(filasDatos(12)) '13 DEPARTAMENTO_EJECUTORA_NOMBRE (texto)
+                bo.PROVINCIA_EJECUTORA = s.int(filasDatos(13)) '14 PROVINCIA_EJECUTORA (int)
+                bo.PROVINCIA_EJECUTORA_NOMBRE = s.str(filasDatos(14)) '15 PROVINCIA_EJECUTORA_NOMBRE (texto)
+                bo.DISTRITO_EJECUTORA = s.int(filasDatos(15)) '16 DISTRITO_EJECUTORA (int)
+                bo.DISTRITO_EJECUTORA_NOMBRE = s.str(filasDatos(16)) '17 DISTRITO_EJECUTORA_NOMBRE (texto)
+                bo.SEC_FUNC = s.int(filasDatos(17)) '18 SEC_FUNC (int)
+                bo.PROGRAMA_PPTO = s.int(filasDatos(18)) '19 PROGRAMA_PPTO (int)
+                bo.PROGRAMA_PPTO_NOMBRE = s.str(filasDatos(19)) '20 PROGRAMA_PPTO_NOMBRE (texto)
+
+
+
+                bo.TIPO_ACT_PROY = s.int(filasDatos(20)) : i_col_error = 20 '21 TIPO_ACT_PROY (int)
+                bo.TIPO_ACT_PROY_NOMBRE = s.str(filasDatos(21)) : i_col_error = 21 '22 TIPO_ACT_PROY_NOMBRE (texto)
+                bo.PRODUCTO_PROYECTO = s.str(filasDatos(22)) '23 PRODUCTO_PROYECTO (char)
+                bo.PRODUCTO_PROYECTO_NOMBRE = s.str(filasDatos(23)) : i_col_error = 23 '24 PRODUCTO_PROYECTO_NOMBRE (texto)
+
+                bo.ACTIVIDAD_ACCION_OBRA = s.str(filasDatos(24)) : i_col_error = 24 '25 ACTIVIDAD_ACCION_OBRA (char)
+                bo.ACTIVIDAD_ACCION_OBRA_NOMBRE = s.str(filasDatos(25)) : i_col_error = 25 '26 ACTIVIDAD_ACCION_OBRA_NOMBRE (texto)
+
+
+                bo.FUNCION = s.int(filasDatos(26)) : i_col_error = 26 '27 FUNCION (int)
+                bo.FUNCION_NOMBRE = s.str(filasDatos(27)) : i_col_error = 27 '28 FUNCION_NOMBRE (texto)
+                bo.DIVISION_FUNCIONAL = s.int(filasDatos(28)) : i_col_error = 28 '29 DIVISION_FUNCIONAL (int)
+                bo.DIVISION_FUNCIONAL_NOMBRE = s.str(filasDatos(29)) : i_col_error = 29 '30 DIVISION_FUNCIONAL_NOMBRE (texto)
+                bo.GRUPO_FUNCIONAL = s.int(filasDatos(30)) : i_col_error = 30 '31 GRUPO_FUNCIONAL (int)
+                bo.GRUPO_FUNCIONAL_NOMBRE = s.str(filasDatos(31)) : i_col_error = 31 '32 GRUPO_FUNCIONAL_NOMBRE (texto)
+                bo.META = s.int(filasDatos(32)) : i_col_error = 32 '33 META (int)
+
+
+                bo.FINALIDAD = s.dob(filasDatos(33)) '34 FINALIDAD ()
+                bo.META_NOMBRE = s.str(filasDatos(34)) '35 META_NOMBRE (texto)
+                bo.DEPARTAMENTO_META = s.int(filasDatos(35)) '36 DEPARTAMENTO_META (int)
+                bo.DEPARTAMENTO_META_NOMBRE = s.str(filasDatos(36)) '37 DEPARTAMENTO_META_NOMBRE (texto)
+                bo.FUENTE_FINANCIAMIENTO = s.int(filasDatos(37)) '38 FUENTE_FINANCIAMIENTO (int)
+                bo.FUENTE_FINANCIAMIENTO_NOMBRE = s.str(filasDatos(38)) '39 FUENTE_FINANCIAMIENTO_NOMBRE (texto)
+                bo.RUBRO = s.int(filasDatos(39)) '40 RUBRO (int)
+                bo.RUBRO_NOMBRE = s.str(filasDatos(40)) '41 RUBRO_NOMBRE (texto)
+                bo.TIPO_RECURSO = s.int(filasDatos(41)) '42 TIPO_RECURSO (int)
+                bo.TIPO_RECURSO_NOMBRE = s.str(filasDatos(42)) '43 TIPO_RECURSO_NOMBRE (texto)
+                bo.CATEGORIA_GASTO = s.int(filasDatos(43)) '44 CATEGORIA_GASTO (int)
+                bo.CATEGORIA_GASTO_NOMBRE = s.str(filasDatos(44)) '45 CATEGORIA_GASTO_NOMBRE (texto)
+                bo.TIPO_TRANSACCION = s.int(filasDatos(45)) '46 TIPO_TRANSACCION (int)
+                bo.GENERICA = s.int(filasDatos(46)) '47 GENERICA (int)
+                bo.GENERICA_NOMBRE = s.str(filasDatos(47)) '48 GENERICA_NOMBRE (texto)
+                bo.SUBGENERICA = s.int(filasDatos(48)) '49 SUBGENERICA (int)
+                bo.SUBGENERICA_NOMBRE = s.str(filasDatos(49)) '50 SUBGENERICA_NOMBRE (texto)
+                bo.SUBGENERICA_DET = s.int(filasDatos(50)) '51 SUBGENERICA_DET (int)
+                bo.SUBGENERICA_DET_NOMBRE = s.str(filasDatos(51)) '52 SUBGENERICA_DET_NOMBRE (texto)
+                bo.ESPECIFICA = s.int(filasDatos(52)) '53 ESPECIFICA (int)
+                bo.ESPECIFICA_NOMBRE = s.str(filasDatos(53)) '54 ESPECIFICA_NOMBRE (texto)
+                bo.ESPECIFICA_DET = s.int(filasDatos(54)) '55 ESPECIFICA_DET (int)
+                bo.ESPECIFICA_DET_NOMBRE = s.str(filasDatos(55)) '56 ESPECIFICA_DET_NOMBRE (texto)
+                bo.MONTO_PIA = s.dob(filasDatos(56)) '57 MONTO_PIA (decimal)
+                bo.MONTO_PIM = s.dob(filasDatos(57)) '58 MONTO_PIM (decimal)
+                bo.MONTO_CERTIFICADO = s.dob(filasDatos(58)) '59 MONTO_CERTIFICADO (decimal)
+                bo.MONTO_COMPROMETIDO_ANUAL = s.dob(filasDatos(59)) '60 MONTO_COMPROMETIDO_ANUAL (decimal)
+                bo.MONTO_COMPROMETIDO = s.dob(filasDatos(60)) '61 MONTO_COMPROMETIDO (decimal)
+                bo.MONTO_DEVENGADO = s.dob(filasDatos(61)) '62 MONTO_DEVENGADO (decimal)
+                bo.MONTO_GIRADO = s.dob(filasDatos(62)) '63 MONTO_GIRADO (decimal)
+                '
+                '
+                ilist.Add(bo)
+                filasDatos = Nothing
+                listCVS(i) = ""
+                bo = Nothing
+
+            Catch ex As Exception
+                s_cvs_error = "Error asiagnacion:" + ex.Message + "Linea:[" + i_col_error.ToString + "]"
+            End Try
+
+
+
+
+            's_cvs_error = _ejeSQL(igrupo, bo)
+            ' If ilist.Count = 10 Or ilist2.Count = 10 Then
+            Try
+                If s_cvs_error = "" Then
+
+                    If ilist.Count = gs_packEnvioInsert Then
+                        dc.eco_tempo.InsertAllOnSubmit(ilist)
+                        dc.SubmitChanges()
+                        ilist.Clear()
+                        ilist = New List(Of eco_tempo)
+                    End If
+                End If
+            Catch ex As Exception
+                s_cvs_error = "Error grabar linea:" + ex.Message + "Linea:[" + i_col_error.ToString + "]"
+
+            End Try
+
+
+
+            'error 
+            Select Case igrupo
+                Case 1 : bkw_tarea.ReportProgress(i_porcent)
+                Case 2 : bkw_tarea02.ReportProgress(i_porcent)
+                Case 3 : bkw_tarea03.ReportProgress(i_porcent)
+                Case 4 : bkw_tarea04.ReportProgress(i_porcent)
+                Case 5 : bkw_tarea05.ReportProgress(i_porcent)
+                Case 6 : bkw_tarea06.ReportProgress(i_porcent)
+                Case 7 : bkw_tarea07.ReportProgress(i_porcent)
+                Case 8 : bkw_tarea08.ReportProgress(i_porcent)
+                Case 9 : bkw_tarea09.ReportProgress(i_porcent)
+                Case 10 : bkw_tarea10.ReportProgress(i_porcent)
+                Case 11 : bkw_tarea11.ReportProgress(i_porcent)
+                Case 12 : bkw_tarea12.ReportProgress(i_porcent)
+                Case 13 : bkw_tarea13.ReportProgress(i_porcent)
+                Case 14 : bkw_tarea14.ReportProgress(i_porcent)
+                Case 15 : bkw_tarea15.ReportProgress(i_porcent)
+                Case 16 : bkw_tarea16.ReportProgress(i_porcent)
+                Case 17 : bkw_tarea17.ReportProgress(i_porcent)
+                Case 18 : bkw_tarea18.ReportProgress(i_porcent)
+                Case 19 : bkw_tarea19.ReportProgress(i_porcent)
+                Case 20 : bkw_tarea20.ReportProgress(i_porcent)
+            End Select
+
+            'ilist.Add(bo)
+            'dc.eco_tempo.InsertOnSubmit(bo)
+            'dc.SubmitChanges()
+            'bo = Nothing
+
+            'If ilist.Count = 10 Then
+            'dc.eco_tempo.InsertAllOnSubmit(ilist)
+            'dc.SubmitChanges()
+            ' ilist = New List(Of eco_tempo)
+            '       dc = Nothing
+            'End If
+
+            i_row = i_row + 1
+            ' 
+        Next
+        Try
+
+
+            If ilist.Count > 0 Then
+                dc.eco_tempo.InsertAllOnSubmit(ilist)
+                dc.SubmitChanges()
+
+            End If
+            ilist = Nothing
+        Catch ex As Exception
+            s_cvs_error = "Error grabar Utm:" + ex.Message
+        End Try
+
+        dc = Nothing
+
+
+        If s_cvs_error <> "" Then
+            Select Case igrupo
+                Case 1 : bkw_tarea.ReportProgress(i_porcent)
+                Case 2 : bkw_tarea02.ReportProgress(i_porcent)
+                Case 3 : bkw_tarea03.ReportProgress(i_porcent)
+                Case 4 : bkw_tarea04.ReportProgress(i_porcent)
+                Case 5 : bkw_tarea05.ReportProgress(i_porcent)
+                Case 6 : bkw_tarea06.ReportProgress(i_porcent)
+                Case 7 : bkw_tarea07.ReportProgress(i_porcent)
+                Case 8 : bkw_tarea08.ReportProgress(i_porcent)
+                Case 9 : bkw_tarea09.ReportProgress(i_porcent)
+                Case 10 : bkw_tarea10.ReportProgress(i_porcent)
+                Case 11 : bkw_tarea11.ReportProgress(i_porcent)
+                Case 12 : bkw_tarea12.ReportProgress(i_porcent)
+                Case 13 : bkw_tarea13.ReportProgress(i_porcent)
+                Case 14 : bkw_tarea14.ReportProgress(i_porcent)
+                Case 15 : bkw_tarea15.ReportProgress(i_porcent)
+                Case 16 : bkw_tarea16.ReportProgress(i_porcent)
+                Case 17 : bkw_tarea17.ReportProgress(i_porcent)
+                Case 18 : bkw_tarea18.ReportProgress(i_porcent)
+                Case 19 : bkw_tarea19.ReportProgress(i_porcent)
+                Case 20 : bkw_tarea20.ReportProgress(i_porcent)
+            End Select
+        End If
+
+    End Sub
     Private Sub ifx_do_loadCVS()
 
         Dim ficheroCSV As String = txt_ruta.Text
@@ -478,6 +703,7 @@ Public Class frmTareaEco
     Private Sub bkw_tarea_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles bkw_tarea.DoWork
         '        ifx_do_procesar(1)
         ifx_do_procesar_all(1)
+        'ifx_do_procesar_one()
     End Sub
 
     Private Sub bkw_tarea_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles bkw_tarea.ProgressChanged

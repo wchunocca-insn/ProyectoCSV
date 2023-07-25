@@ -120,9 +120,9 @@ Partial Class frmTareaEco
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(104, 74)
+        Me.ProgressBar1.Location = New System.Drawing.Point(89, 72)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(164, 15)
+        Me.ProgressBar1.Size = New System.Drawing.Size(414, 34)
         Me.ProgressBar1.TabIndex = 4
         '
         'lbl_irow
@@ -185,66 +185,73 @@ Partial Class frmTareaEco
         '
         'probar_02
         '
-        Me.probar_02.Location = New System.Drawing.Point(104, 95)
+        Me.probar_02.Location = New System.Drawing.Point(89, 116)
         Me.probar_02.Name = "probar_02"
-        Me.probar_02.Size = New System.Drawing.Size(164, 15)
+        Me.probar_02.Size = New System.Drawing.Size(414, 34)
         Me.probar_02.TabIndex = 6
         '
         'probar_03
         '
-        Me.probar_03.Location = New System.Drawing.Point(104, 116)
+        Me.probar_03.Location = New System.Drawing.Point(89, 160)
         Me.probar_03.Name = "probar_03"
-        Me.probar_03.Size = New System.Drawing.Size(164, 15)
+        Me.probar_03.Size = New System.Drawing.Size(414, 34)
         Me.probar_03.TabIndex = 7
         '
         'probar_04
         '
-        Me.probar_04.Location = New System.Drawing.Point(104, 137)
+        Me.probar_04.Location = New System.Drawing.Point(575, 92)
         Me.probar_04.Name = "probar_04"
-        Me.probar_04.Size = New System.Drawing.Size(164, 15)
+        Me.probar_04.Size = New System.Drawing.Size(30, 15)
         Me.probar_04.TabIndex = 8
+        Me.probar_04.Visible = False
         '
         'probar_07
         '
-        Me.probar_07.Location = New System.Drawing.Point(104, 200)
+        Me.probar_07.Location = New System.Drawing.Point(575, 155)
         Me.probar_07.Name = "probar_07"
-        Me.probar_07.Size = New System.Drawing.Size(164, 15)
+        Me.probar_07.Size = New System.Drawing.Size(30, 15)
         Me.probar_07.TabIndex = 11
+        Me.probar_07.Visible = False
         '
         'probar_06
         '
-        Me.probar_06.Location = New System.Drawing.Point(104, 179)
+        Me.probar_06.Location = New System.Drawing.Point(575, 134)
         Me.probar_06.Name = "probar_06"
-        Me.probar_06.Size = New System.Drawing.Size(164, 15)
+        Me.probar_06.Size = New System.Drawing.Size(30, 15)
         Me.probar_06.TabIndex = 10
+        Me.probar_06.Visible = False
         '
         'probar_05
         '
-        Me.probar_05.Location = New System.Drawing.Point(104, 158)
+        Me.probar_05.Location = New System.Drawing.Point(575, 113)
         Me.probar_05.Name = "probar_05"
-        Me.probar_05.Size = New System.Drawing.Size(164, 15)
+        Me.probar_05.Size = New System.Drawing.Size(30, 15)
         Me.probar_05.TabIndex = 9
+        Me.probar_05.Visible = False
         '
         'probar_10
         '
-        Me.probar_10.Location = New System.Drawing.Point(104, 263)
+        Me.probar_10.Location = New System.Drawing.Point(575, 218)
         Me.probar_10.Name = "probar_10"
-        Me.probar_10.Size = New System.Drawing.Size(164, 15)
+        Me.probar_10.Size = New System.Drawing.Size(30, 15)
         Me.probar_10.TabIndex = 14
+        Me.probar_10.Visible = False
         '
         'probar_09
         '
-        Me.probar_09.Location = New System.Drawing.Point(104, 242)
+        Me.probar_09.Location = New System.Drawing.Point(575, 197)
         Me.probar_09.Name = "probar_09"
-        Me.probar_09.Size = New System.Drawing.Size(164, 15)
+        Me.probar_09.Size = New System.Drawing.Size(30, 15)
         Me.probar_09.TabIndex = 13
+        Me.probar_09.Visible = False
         '
         'probar_08
         '
-        Me.probar_08.Location = New System.Drawing.Point(104, 221)
+        Me.probar_08.Location = New System.Drawing.Point(575, 176)
         Me.probar_08.Name = "probar_08"
-        Me.probar_08.Size = New System.Drawing.Size(164, 15)
+        Me.probar_08.Size = New System.Drawing.Size(30, 15)
         Me.probar_08.TabIndex = 12
+        Me.probar_08.Visible = False
         '
         'bkw_tarea11
         '
@@ -298,82 +305,92 @@ Partial Class frmTareaEco
         '
         'probar_20
         '
-        Me.probar_20.Location = New System.Drawing.Point(339, 263)
+        Me.probar_20.Location = New System.Drawing.Point(603, 220)
         Me.probar_20.Name = "probar_20"
-        Me.probar_20.Size = New System.Drawing.Size(164, 15)
+        Me.probar_20.Size = New System.Drawing.Size(25, 15)
         Me.probar_20.TabIndex = 24
+        Me.probar_20.Visible = False
         '
         'probar_19
         '
-        Me.probar_19.Location = New System.Drawing.Point(339, 242)
+        Me.probar_19.Location = New System.Drawing.Point(637, 220)
         Me.probar_19.Name = "probar_19"
-        Me.probar_19.Size = New System.Drawing.Size(164, 15)
+        Me.probar_19.Size = New System.Drawing.Size(25, 15)
         Me.probar_19.TabIndex = 23
+        Me.probar_19.Visible = False
         '
         'probar_18
         '
-        Me.probar_18.Location = New System.Drawing.Point(339, 221)
+        Me.probar_18.Location = New System.Drawing.Point(637, 199)
         Me.probar_18.Name = "probar_18"
-        Me.probar_18.Size = New System.Drawing.Size(164, 15)
+        Me.probar_18.Size = New System.Drawing.Size(25, 15)
         Me.probar_18.TabIndex = 22
+        Me.probar_18.Visible = False
         '
         'probar_17
         '
-        Me.probar_17.Location = New System.Drawing.Point(339, 200)
+        Me.probar_17.Location = New System.Drawing.Point(637, 178)
         Me.probar_17.Name = "probar_17"
-        Me.probar_17.Size = New System.Drawing.Size(164, 15)
+        Me.probar_17.Size = New System.Drawing.Size(25, 15)
         Me.probar_17.TabIndex = 21
+        Me.probar_17.Visible = False
         '
         'probar_16
         '
-        Me.probar_16.Location = New System.Drawing.Point(339, 179)
+        Me.probar_16.Location = New System.Drawing.Point(637, 157)
         Me.probar_16.Name = "probar_16"
-        Me.probar_16.Size = New System.Drawing.Size(164, 15)
+        Me.probar_16.Size = New System.Drawing.Size(25, 15)
         Me.probar_16.TabIndex = 20
+        Me.probar_16.Visible = False
         '
         'probar_15
         '
-        Me.probar_15.Location = New System.Drawing.Point(339, 158)
+        Me.probar_15.Location = New System.Drawing.Point(637, 136)
         Me.probar_15.Name = "probar_15"
-        Me.probar_15.Size = New System.Drawing.Size(164, 15)
+        Me.probar_15.Size = New System.Drawing.Size(25, 15)
         Me.probar_15.TabIndex = 19
+        Me.probar_15.Visible = False
         '
         'probar_14
         '
-        Me.probar_14.Location = New System.Drawing.Point(339, 137)
+        Me.probar_14.Location = New System.Drawing.Point(637, 115)
         Me.probar_14.Name = "probar_14"
-        Me.probar_14.Size = New System.Drawing.Size(164, 15)
+        Me.probar_14.Size = New System.Drawing.Size(25, 15)
         Me.probar_14.TabIndex = 18
+        Me.probar_14.Visible = False
         '
         'probar_13
         '
-        Me.probar_13.Location = New System.Drawing.Point(339, 116)
+        Me.probar_13.Location = New System.Drawing.Point(637, 94)
         Me.probar_13.Name = "probar_13"
-        Me.probar_13.Size = New System.Drawing.Size(164, 15)
+        Me.probar_13.Size = New System.Drawing.Size(25, 15)
         Me.probar_13.TabIndex = 17
+        Me.probar_13.Visible = False
         '
         'probar_12
         '
-        Me.probar_12.Location = New System.Drawing.Point(339, 95)
+        Me.probar_12.Location = New System.Drawing.Point(637, 73)
         Me.probar_12.Name = "probar_12"
-        Me.probar_12.Size = New System.Drawing.Size(164, 15)
+        Me.probar_12.Size = New System.Drawing.Size(25, 15)
         Me.probar_12.TabIndex = 16
+        Me.probar_12.Visible = False
         '
         'probar_11
         '
-        Me.probar_11.Location = New System.Drawing.Point(339, 74)
+        Me.probar_11.Location = New System.Drawing.Point(634, 53)
         Me.probar_11.Name = "probar_11"
-        Me.probar_11.Size = New System.Drawing.Size(164, 15)
+        Me.probar_11.Size = New System.Drawing.Size(27, 15)
         Me.probar_11.TabIndex = 15
+        Me.probar_11.Visible = False
         '
         'lbl_fase_01
         '
         Me.lbl_fase_01.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_01.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_01.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_01.Location = New System.Drawing.Point(84, 73)
+        Me.lbl_fase_01.Location = New System.Drawing.Point(46, 70)
         Me.lbl_fase_01.Name = "lbl_fase_01"
-        Me.lbl_fase_01.Size = New System.Drawing.Size(17, 15)
+        Me.lbl_fase_01.Size = New System.Drawing.Size(40, 35)
         Me.lbl_fase_01.TabIndex = 25
         Me.lbl_fase_01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbl_fase_01.Visible = False
@@ -383,9 +400,9 @@ Partial Class frmTareaEco
         Me.lbl_fase_02.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_02.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_02.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_02.Location = New System.Drawing.Point(84, 95)
+        Me.lbl_fase_02.Location = New System.Drawing.Point(46, 115)
         Me.lbl_fase_02.Name = "lbl_fase_02"
-        Me.lbl_fase_02.Size = New System.Drawing.Size(17, 15)
+        Me.lbl_fase_02.Size = New System.Drawing.Size(40, 35)
         Me.lbl_fase_02.TabIndex = 26
         Me.lbl_fase_02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbl_fase_02.Visible = False
@@ -395,7 +412,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_04.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_04.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_04.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_04.Location = New System.Drawing.Point(84, 137)
+        Me.lbl_fase_04.Location = New System.Drawing.Point(555, 92)
         Me.lbl_fase_04.Name = "lbl_fase_04"
         Me.lbl_fase_04.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_04.TabIndex = 28
@@ -407,9 +424,9 @@ Partial Class frmTareaEco
         Me.lbl_fase_03.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_03.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_03.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_03.Location = New System.Drawing.Point(84, 115)
+        Me.lbl_fase_03.Location = New System.Drawing.Point(46, 159)
         Me.lbl_fase_03.Name = "lbl_fase_03"
-        Me.lbl_fase_03.Size = New System.Drawing.Size(17, 15)
+        Me.lbl_fase_03.Size = New System.Drawing.Size(40, 35)
         Me.lbl_fase_03.TabIndex = 27
         Me.lbl_fase_03.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbl_fase_03.Visible = False
@@ -419,7 +436,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_08.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_08.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_08.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_08.Location = New System.Drawing.Point(84, 220)
+        Me.lbl_fase_08.Location = New System.Drawing.Point(555, 175)
         Me.lbl_fase_08.Name = "lbl_fase_08"
         Me.lbl_fase_08.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_08.TabIndex = 32
@@ -431,7 +448,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_07.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_07.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_07.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_07.Location = New System.Drawing.Point(84, 198)
+        Me.lbl_fase_07.Location = New System.Drawing.Point(555, 153)
         Me.lbl_fase_07.Name = "lbl_fase_07"
         Me.lbl_fase_07.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_07.TabIndex = 31
@@ -443,7 +460,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_06.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_06.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_06.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_06.Location = New System.Drawing.Point(84, 178)
+        Me.lbl_fase_06.Location = New System.Drawing.Point(555, 133)
         Me.lbl_fase_06.Name = "lbl_fase_06"
         Me.lbl_fase_06.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_06.TabIndex = 30
@@ -455,7 +472,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_05.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_05.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_05.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_05.Location = New System.Drawing.Point(84, 156)
+        Me.lbl_fase_05.Location = New System.Drawing.Point(555, 111)
         Me.lbl_fase_05.Name = "lbl_fase_05"
         Me.lbl_fase_05.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_05.TabIndex = 29
@@ -467,7 +484,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_10.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_10.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_10.Location = New System.Drawing.Point(84, 263)
+        Me.lbl_fase_10.Location = New System.Drawing.Point(555, 218)
         Me.lbl_fase_10.Name = "lbl_fase_10"
         Me.lbl_fase_10.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_10.TabIndex = 34
@@ -479,7 +496,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_09.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_09.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_09.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_09.Location = New System.Drawing.Point(84, 241)
+        Me.lbl_fase_09.Location = New System.Drawing.Point(555, 196)
         Me.lbl_fase_09.Name = "lbl_fase_09"
         Me.lbl_fase_09.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_09.TabIndex = 33
@@ -491,7 +508,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_20.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_20.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_20.Location = New System.Drawing.Point(316, 264)
+        Me.lbl_fase_20.Location = New System.Drawing.Point(541, 235)
         Me.lbl_fase_20.Name = "lbl_fase_20"
         Me.lbl_fase_20.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_20.TabIndex = 44
@@ -503,7 +520,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_19.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_19.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_19.Location = New System.Drawing.Point(316, 242)
+        Me.lbl_fase_19.Location = New System.Drawing.Point(611, 222)
         Me.lbl_fase_19.Name = "lbl_fase_19"
         Me.lbl_fase_19.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_19.TabIndex = 43
@@ -515,7 +532,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_18.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_18.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_18.Location = New System.Drawing.Point(316, 221)
+        Me.lbl_fase_18.Location = New System.Drawing.Point(611, 201)
         Me.lbl_fase_18.Name = "lbl_fase_18"
         Me.lbl_fase_18.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_18.TabIndex = 42
@@ -527,7 +544,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_17.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_17.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_17.Location = New System.Drawing.Point(316, 199)
+        Me.lbl_fase_17.Location = New System.Drawing.Point(611, 179)
         Me.lbl_fase_17.Name = "lbl_fase_17"
         Me.lbl_fase_17.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_17.TabIndex = 41
@@ -539,7 +556,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_16.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_16.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_16.Location = New System.Drawing.Point(316, 179)
+        Me.lbl_fase_16.Location = New System.Drawing.Point(611, 159)
         Me.lbl_fase_16.Name = "lbl_fase_16"
         Me.lbl_fase_16.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_16.TabIndex = 40
@@ -551,7 +568,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_15.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_15.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_15.Location = New System.Drawing.Point(316, 157)
+        Me.lbl_fase_15.Location = New System.Drawing.Point(611, 137)
         Me.lbl_fase_15.Name = "lbl_fase_15"
         Me.lbl_fase_15.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_15.TabIndex = 39
@@ -563,7 +580,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_14.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_14.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_14.Location = New System.Drawing.Point(316, 138)
+        Me.lbl_fase_14.Location = New System.Drawing.Point(611, 118)
         Me.lbl_fase_14.Name = "lbl_fase_14"
         Me.lbl_fase_14.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_14.TabIndex = 38
@@ -575,7 +592,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_13.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_13.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_13.Location = New System.Drawing.Point(316, 116)
+        Me.lbl_fase_13.Location = New System.Drawing.Point(611, 96)
         Me.lbl_fase_13.Name = "lbl_fase_13"
         Me.lbl_fase_13.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_13.TabIndex = 37
@@ -587,7 +604,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_12.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_12.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_12.Location = New System.Drawing.Point(316, 96)
+        Me.lbl_fase_12.Location = New System.Drawing.Point(611, 76)
         Me.lbl_fase_12.Name = "lbl_fase_12"
         Me.lbl_fase_12.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_12.TabIndex = 36
@@ -599,7 +616,7 @@ Partial Class frmTareaEco
         Me.lbl_fase_11.BackColor = System.Drawing.Color.Lime
         Me.lbl_fase_11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_fase_11.ForeColor = System.Drawing.Color.White
-        Me.lbl_fase_11.Location = New System.Drawing.Point(316, 74)
+        Me.lbl_fase_11.Location = New System.Drawing.Point(611, 53)
         Me.lbl_fase_11.Name = "lbl_fase_11"
         Me.lbl_fase_11.Size = New System.Drawing.Size(17, 15)
         Me.lbl_fase_11.TabIndex = 35
@@ -612,7 +629,7 @@ Partial Class frmTareaEco
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(509, 38)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(163, 212)
+        Me.ListBox1.Size = New System.Drawing.Size(163, 225)
         Me.ListBox1.TabIndex = 45
         '
         'pgbar_avance
@@ -639,7 +656,7 @@ Partial Class frmTareaEco
         Me.lbl_cant.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_cant.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_cant.ForeColor = System.Drawing.Color.Navy
-        Me.lbl_cant.Location = New System.Drawing.Point(582, 253)
+        Me.lbl_cant.Location = New System.Drawing.Point(582, 271)
         Me.lbl_cant.Name = "lbl_cant"
         Me.lbl_cant.Size = New System.Drawing.Size(90, 17)
         Me.lbl_cant.TabIndex = 49
@@ -651,11 +668,11 @@ Partial Class frmTareaEco
         Me.lbl_error_msg.BackColor = System.Drawing.Color.WhiteSmoke
         Me.lbl_error_msg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbl_error_msg.ForeColor = System.Drawing.Color.Maroon
-        Me.lbl_error_msg.Location = New System.Drawing.Point(84, 281)
+        Me.lbl_error_msg.Location = New System.Drawing.Point(98, 197)
         Me.lbl_error_msg.Multiline = True
         Me.lbl_error_msg.Name = "lbl_error_msg"
         Me.lbl_error_msg.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.lbl_error_msg.Size = New System.Drawing.Size(607, 96)
+        Me.lbl_error_msg.Size = New System.Drawing.Size(407, 96)
         Me.lbl_error_msg.TabIndex = 50
         '
         'Label3
@@ -663,7 +680,7 @@ Partial Class frmTareaEco
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Navy
-        Me.Label3.Location = New System.Drawing.Point(509, 253)
+        Me.Label3.Location = New System.Drawing.Point(509, 271)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(67, 19)
         Me.Label3.TabIndex = 51
@@ -673,7 +690,7 @@ Partial Class frmTareaEco
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(703, 392)
+        Me.ClientSize = New System.Drawing.Size(703, 300)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lbl_error_msg)
         Me.Controls.Add(Me.lbl_cant)
