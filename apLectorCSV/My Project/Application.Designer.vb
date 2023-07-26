@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.apLectorCSV.frmTareaEco
+            Me.MainForm = Global.apLectorCSV._motor
         End Sub
     End Class
 End Namespace

@@ -16,8 +16,8 @@
     <Setting Name="NombreFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">BD_FUNCION_SALUD_GR.csv</Value>
     </Setting>
-    <Setting Name="PaqueteEnvio" Type="System.String" Scope="User">
-      <Value Profile="(Default)">500</Value>
+    <Setting Name="ServerDestino" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\oeides-home\DatosQ\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

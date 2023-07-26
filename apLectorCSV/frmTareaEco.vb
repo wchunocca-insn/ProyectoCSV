@@ -366,12 +366,12 @@ Public Class frmTareaEco
             Try
                 If s_cvs_error = "" Then
                     
-                    If ilist.Count = gs_packEnvioInsert Then
-                        dc.eco_tempo.InsertAllOnSubmit(ilist)
-                        dc.SubmitChanges()
-                        ilist.Clear()
-                        ilist = New List(Of eco_tempo)
-                    End If
+                    'If ilist.Count = gs_packEnvioInsert Then
+                    '    dc.eco_tempo.InsertAllOnSubmit(ilist)
+                    '    dc.SubmitChanges()
+                    '    ilist.Clear()
+                    '    ilist = New List(Of eco_tempo)
+                    'End If
                 End If
             Catch ex As Exception
                 s_cvs_error = "Error grabar linea:" + ex.Message + "Linea:[" + i_col_error.ToString + "]"
@@ -595,12 +595,12 @@ Public Class frmTareaEco
             Try
                 If s_cvs_error = "" Then
 
-                    If ilist.Count = gs_packEnvioInsert Then
-                        dc.eco_tempo.InsertAllOnSubmit(ilist)
-                        dc.SubmitChanges()
-                        ilist.Clear()
-                        ilist = New List(Of eco_tempo)
-                    End If
+                    'If ilist.Count = gs_packEnvioInsert Then
+                    '    dc.eco_tempo.InsertAllOnSubmit(ilist)
+                    '    dc.SubmitChanges()
+                    '    ilist.Clear()
+                    '    ilist = New List(Of eco_tempo)
+                    'End If
                 End If
             Catch ex As Exception
                 s_cvs_error = "Error grabar linea:" + ex.Message + "Linea:[" + i_col_error.ToString + "]"

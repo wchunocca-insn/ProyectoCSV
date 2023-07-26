@@ -66,3 +66,4 @@ C:\Users\celtic\Desktop\FormCSV\Fuente\gitLectorCVS\ProyectoCSV\apLectorCSV\bin\
 C:\Users\celtic\Desktop\FormCSV\Fuente\gitLectorCVS\ProyectoCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.frmTareaEco.resources
 C:\Users\celtic\Desktop\FormCSV\Fuente\gitLectorCVS\ProyectoCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.Resources.resources
 C:\Users\celtic\Desktop\FormCSV\Fuente\gitLectorCVS\ProyectoCSV\apLectorCSV\obj\x86\Debug\apLectorCSV.vbproj.GenerateResource.Cache
+C:\Users\celtic\Desktop\FormCSV\Fuente\gitLectorCVS\ProyectoCSV\apLectorCSV\obj\x86\Debug\apLectorCSV._motor.resources

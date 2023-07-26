@@ -48,6 +48,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconoWin.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -104,10 +107,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="_motor.Designer.vb">
+      <DependentUpon>_motor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="_motor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="_s.vb" />
     <Compile Include="_var.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="_motor.resx">
+      <DependentUpon>_motor.vb</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="dbData.dbml.layout">
       <DependentUpon>dbData.dbml</DependentUpon>
@@ -142,6 +154,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="iconoWin.ico" />
     <Content Include="tmpRES\CarpetaTemp.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

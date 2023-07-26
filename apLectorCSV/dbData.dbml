@@ -81,4 +81,10 @@
     <Parameter Name="s_msgError" Type="System.String" DbType="VarChar(250)" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.pms_ecomin_MtCVSproceso" Method="pms_ecomin_MtCVSproceso">
+    <Parameter Name="s_rutaFile" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="s_error_msg" Type="System.String" DbType="VarChar(350)" Direction="InOut" />
+    <Parameter Name="i_error_nro" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

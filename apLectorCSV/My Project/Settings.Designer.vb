@@ -90,13 +90,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("500")>  _
-        Public Property PaqueteEnvio() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("\\oeides-home\DatosQ\")>  _
+        Public Property ServerDestino() As String
             Get
-                Return CType(Me("PaqueteEnvio"),String)
+                Return CType(Me("ServerDestino"),String)
             End Get
             Set
-                Me("PaqueteEnvio") = value
+                Me("ServerDestino") = value
             End Set
         End Property
     End Class
