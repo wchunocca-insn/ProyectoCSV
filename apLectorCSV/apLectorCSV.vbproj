@@ -49,7 +49,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>iconoWin.ico</ApplicationIcon>
+    <ApplicationIcon>icoWins.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -85,13 +85,6 @@
     <Compile Include="dbData.vb">
       <DependentUpon>dbData.dbml</DependentUpon>
     </Compile>
-    <Compile Include="frmTareaEco.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTareaEco.Designer.vb">
-      <DependentUpon>frmTareaEco.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,9 +117,6 @@
     <None Include="dbData.dbml.layout">
       <DependentUpon>dbData.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="frmTareaEco.resx">
-      <DependentUpon>frmTareaEco.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -154,7 +144,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="iconoWin.ico" />
+    <Content Include="icoWins.ico" />
     <Content Include="tmpRES\CarpetaTemp.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

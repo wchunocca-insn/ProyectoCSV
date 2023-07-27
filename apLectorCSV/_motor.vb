@@ -26,6 +26,15 @@
             e.Cancel = True
         End Try
 
+        Try
+            Dim dc As New dbDataDataContext
+            dc.CommandTimeout = 600 '10 min
+            dc.pms_ecomin_mtTareaCVS("depura", "", "", "", s_error)
+            dc = Nothing
+        Catch ex As Exception
+            s_error = ex.Message
+            e.Cancel = True
+        End Try
 
 
     End Sub
@@ -38,6 +47,7 @@
         Else
             lbl_error_mesage.Text = "Se completo la tarea correctamente..!"
             lbl_error_mesage.ForeColor = Color.Navy
+            End
         End If
 
     End Sub

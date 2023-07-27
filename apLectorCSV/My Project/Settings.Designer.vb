@@ -57,7 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=Migracion;User ID=sa;Password=combate")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=EcoMigrar;User ID=sa;Password=combate")>  _
         Public ReadOnly Property GsECOConnectionString() As String
             Get
                 Return CType(Me("GsECOConnectionString"),String)
