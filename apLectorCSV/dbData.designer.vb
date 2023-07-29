@@ -22,7 +22,7 @@ Imports System.Linq.Expressions
 Imports System.Reflection
 
 
-<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="Migracion")>  _
+<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="EcoMigrar")>  _
 Partial Public Class dbDataDataContext
 	Inherits System.Data.Linq.DataContext
 	
@@ -78,10 +78,10 @@ Partial Public Class dbDataDataContext
 	End Function
 	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.pms_ecomin_MtCVSproceso")>  _
-	Public Function pms_ecomin_MtCVSproceso(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(500)")> ByVal s_rutaFile As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(350)")> ByRef s_error_msg As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Int")> ByRef i_error_nro As System.Nullable(Of Integer)) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), s_rutaFile, s_error_msg, i_error_nro)
-		s_error_msg = CType(result.GetParameterValue(1),String)
-		i_error_nro = CType(result.GetParameterValue(2),System.Nullable(Of Integer))
+	Public Function pms_ecomin_MtCVSproceso(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Int")> ByVal i_nroFile As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(500)")> ByVal s_rutaFile As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="VarChar(350)")> ByRef s_error_msg As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Int")> ByRef i_error_nro As System.Nullable(Of Integer)) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), i_nroFile, s_rutaFile, s_error_msg, i_error_nro)
+		s_error_msg = CType(result.GetParameterValue(2),String)
+		i_error_nro = CType(result.GetParameterValue(3),System.Nullable(Of Integer))
 		Return CType(result.ReturnValue,Integer)
 	End Function
 End Class

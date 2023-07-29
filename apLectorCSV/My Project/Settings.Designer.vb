@@ -66,7 +66,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("C:\Users\celtic\Downloads\datos\")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("\\oeides-home\DatosQ\")>  _
         Public Property ServerOrigen() As String
             Get
                 Return CType(Me("ServerOrigen"),String)
@@ -90,13 +90,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("\\oeides-home\DatosQ\")>  _
-        Public Property ServerDestino() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("BD_SALUD_GN.csv")>  _
+        Public Property NombreFileN2() As String
             Get
-                Return CType(Me("ServerDestino"),String)
+                Return CType(Me("NombreFileN2"),String)
             End Get
             Set
-                Me("ServerDestino") = value
+                Me("NombreFileN2") = value
             End Set
         End Property
     End Class

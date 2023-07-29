@@ -11,13 +11,13 @@
       <Value Profile="(Default)">Data Source=.;Initial Catalog=EcoMigrar;User ID=sa;Password=combate</Value>
     </Setting>
     <Setting Name="ServerOrigen" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\celtic\Downloads\datos\</Value>
+      <Value Profile="(Default)">\\oeides-home\DatosQ\</Value>
     </Setting>
     <Setting Name="NombreFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">BD_FUNCION_SALUD_GR.csv</Value>
     </Setting>
-    <Setting Name="ServerDestino" Type="System.String" Scope="User">
-      <Value Profile="(Default)">\\oeides-home\DatosQ\</Value>
+    <Setting Name="NombreFileN2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BD_SALUD_GN.csv</Value>
     </Setting>
   </Settings>
 </SettingsFile>

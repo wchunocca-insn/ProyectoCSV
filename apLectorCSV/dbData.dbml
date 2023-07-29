@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Migracion" Class="dbDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Migracion;User ID=sa" SettingsObjectName="apLectorCSV.My.MySettings" SettingsPropertyName="GsECOConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EcoMigrar" Class="dbDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=EcoMigrar;User ID=sa" SettingsObjectName="apLectorCSV.My.MySettings" SettingsPropertyName="GsECOConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.eco_tempo" Member="eco_tempo">
     <Type Name="eco_tempo">
       <Column Name="id_temp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -82,6 +82,7 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.pms_ecomin_MtCVSproceso" Method="pms_ecomin_MtCVSproceso">
+    <Parameter Name="i_nroFile" Type="System.Int32" DbType="Int" />
     <Parameter Name="s_rutaFile" Type="System.String" DbType="VarChar(500)" />
     <Parameter Name="s_error_msg" Type="System.String" DbType="VarChar(350)" Direction="InOut" />
     <Parameter Name="i_error_nro" Type="System.Int32" DbType="Int" Direction="InOut" />
