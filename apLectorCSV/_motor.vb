@@ -28,7 +28,26 @@
             s_error = ex.Message
             e.Cancel = True
         End Try
+        If i_error = 0 Then
 
+            Try
+                Dim dc As New dbDataDataContext
+                dc.CommandTimeout = 900 '15 min
+                dc.pms_ecomin_mtTareaCVS("letras-n1", "", "", "", s_error)
+                dc = Nothing
+                If s_error <> "" Then
+                    i_error = 99
+                End If
+
+            Catch ex As Exception
+                i_error = 99
+                s_error = ex.Message
+                e.Cancel = True
+            End Try
+
+
+
+        End If
         If i_error = 0 Then
 
             Try
@@ -94,6 +113,28 @@
             s_error = ex.Message
             e.Cancel = True
         End Try
+
+        If i_error = 0 Then
+
+            Try
+                Dim dc As New dbDataDataContext
+                dc.CommandTimeout = 900 '15 min
+                dc.pms_ecomin_mtTareaCVS("letras-n2", "", "", "", s_error)
+                dc = Nothing
+                If s_error <> "" Then
+                    i_error = 99
+                End If
+
+            Catch ex As Exception
+                i_error = 99
+                s_error = ex.Message
+                e.Cancel = True
+            End Try
+
+
+
+        End If
+
         If i_error = 0 Then
 
             Try
