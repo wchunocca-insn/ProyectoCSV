@@ -73,7 +73,7 @@ Partial Class _motor
         Me.MinimizeBox = False
         Me.Name = "_motor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Modulo  migracion"
+        Me.Text = "Modulo  migracion - v2023.06.08"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
